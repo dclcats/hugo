@@ -1,4 +1,4 @@
-baseURL = "http://dclcats.gitee.io/"
+baseURL = "https://dclcats.gitee.io/"
 languageCode = "en-us"
 title = "灿灿的博客网"
 theme = "ananke"
