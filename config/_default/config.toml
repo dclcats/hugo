@@ -1,0 +1,17 @@
+baseURL = "https://dclcats.github.io/hugo/"
+languageCode = "zh-cn"
+title = "灿灿的博客网"
+theme = "ananke"
+
+defaultContentLanguage = "zh"
+
+# emoji 支持开启
+# enableEmoji = true
+
+# 通过 gitinfo 更新文章内容日期信息
+# enableGitInfo = true
+
+# 分页
+# paginate = 10
+
+summaryLength = 3
