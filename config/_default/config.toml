@@ -1,4 +1,4 @@
-baseURL = "https://dclcats.github.io/hugo/"
+baseURL = "https://dclcats.gitee.io/"
 languageCode = "zh-cn"
 title = "灿灿的博客网"
 theme = "ananke"
