@@ -1,7 +1,7 @@
 ---
 title: "Mac制作Ubuntu启动盘"
 date: 2021-03-23T14:13:28+08:00
-draft: true
+draft: false
 slug: "mac-ubuntu"
 author: "Chris-dc"
 description: ""
