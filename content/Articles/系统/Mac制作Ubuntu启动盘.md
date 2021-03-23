@@ -48,5 +48,6 @@ $ hdiutil convert -format UDRW ubuntu-20.04-desktop-amd64.iso -o ubuntu-20.04-de
 $ sudo dd if=ubuntu-20.04-desktop-amd64.img of=/dev/rdisk2 bs=1m
 ```
 **注意`of=`后边的地址是U盘的挂载地址，在`diskutil list`命令中可看到；另外`disk2` -> `rdisk2`，对于两者区别可以百度获取**
+
 **以上命令执行过程中不会有日志，在结束之后会返回一些简单信息，时间会比较久一点，可以做别的事情，在最后会弹窗提示U盘不兼容信息可忽略（如果确定`dd`已执行完成可直接点推出），待`dd`命令执行完成之后，推出U盘即可**
 
