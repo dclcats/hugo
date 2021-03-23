@@ -1,11 +1,7 @@
 +++
 date = "2014-07-11T10:54:24+02:00"
 title = "git reset --hard 操作后的数据恢复"
-author = "灿灿"
-authoravatar = "https://cdn4.iconfinder.com/data/icons/gray-user-management/512/rounded-512.png"
-authorbio = "IT software and Security Engineer, Open source enthusiast."
-authorlocation = "Paris, France"
-authorwebsite = "http://vjeantet.fr"
+author = "Chris-dc"
 slug = 'git reset'
 +++
 
@@ -64,8 +60,3 @@ slug = 'git reset'
 是不是很麻烦，特别是一次提交的文件多了，一个一个新建（修改）复制过去好烦哦。
 
 是的很烦，所以保持良好的习惯。永远不要让这种操作降临到自己身上才是正道。（这只是为不可控的意外情况准备的）
-
-
-
-
-
