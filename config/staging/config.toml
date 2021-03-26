@@ -1,4 +1,4 @@
-baseURL = "https://dclcats.github.io/hugo/"
+baseURL = "https://dclcats.github.io/"
 title = "灿灿的博客网 | staging"
 
 # 构建配置 设置 草稿 / 过期 / 未来文章可使用
