@@ -1,8 +1,7 @@
----
-title: "每天一点react"
-description: "文章列表"
-slug: 'react'
-# menu: main
----
++++
+title = "每天一点react"
+description = "文章列表"
+slug = 'react'
++++
 
-欢迎进入来到我的博客，希望文章对你有所帮助
+每天一点React，学习笔记，以及个人思考总结。
