@@ -15,3 +15,8 @@ defaultContentLanguage = "zh"
 # paginate = 10
 
 summaryLength = 3
+
+[taxonomies]
+  tag = "tags"
+  series = "series"
+  category = "categories"
