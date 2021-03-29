@@ -25,8 +25,10 @@ fi
 if [ -n "$(git status -s)" ];then
     git add $addFile
     git commit -m "$msg"
-    for remote in "$(git remote)";do
-    	`git push $remote`
+    for remote in `git remote`;do
+    	cmd="git push $remote"
+    	echo $cmd
+		eval $cmd
     done
 fi
 
