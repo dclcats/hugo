@@ -43,7 +43,7 @@ show_comments = false
 
 Refs 是使用 `React.createRef()` 创建的，并通过 `ref` 属性附加到 React 元素。在构造组件时，通常将 Refs 分配给实例属性，以便可以在整个组件中引用它们。
 
-```
+```jsx
 class MyComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -57,7 +57,7 @@ class MyComponent extends React.Component {
 
 当 ref 被传递给 `render` 中的元素时，对该节点的引用可以在 ref 的 `current` 属性中被访问。
 
-```
+```jsx
 const node = this.myRef.current;
 ```
 
