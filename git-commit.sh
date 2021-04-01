@@ -2,6 +2,7 @@
 
 msg=$1
 addFile=$2
+push=$3
 
 if [[ $addFile ]]
 then
@@ -25,11 +26,13 @@ fi
 if [ -n "$(git status -s)" ];then
     git add $addFile
     git commit -m "$msg"
-    for remote in `git remote`;do
-    	cmd="git push $remote"
-    	echo $cmd
-		eval $cmd
-    done
+		if [ $push != -1 ];then
+			for remote in `git remote`;do
+				cmd="git push $remote"
+				echo $cmd
+				eval $cmd
+			done
+		fi
 fi
 
 exit
