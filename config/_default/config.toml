@@ -5,6 +5,11 @@ theme = "ananke"
 
 defaultContentLanguage = "zh"
 
+# fix 相对路径图片问题
+uglyurls = true
+# fix 图片路径大小写敏感问题
+disablePathToLower = true
+
 # emoji 支持开启
 # enableEmoji = true
 
