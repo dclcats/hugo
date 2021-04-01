@@ -26,7 +26,7 @@ fi
 if [ -n "$(git status -s)" ];then
     git add $addFile
     git commit -m "$msg"
-		if [ $push != -1 ];then
+		if [[ -z $push || $push != "-1" ]];then
 			for remote in `git remote`;do
 				cmd="git push $remote"
 				echo $cmd
