@@ -17,7 +17,9 @@
 输出以下内容
 
 > "参数1： git message"
+>
 > "参数2： git add 地址"
+>
 > "参数3： 是否push git到远程仓库：默认push；如果为 -1 不push"
 
 参数1： 通过 `git commit -m` 命令附带的message信息
