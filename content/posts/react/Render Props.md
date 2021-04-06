@@ -8,7 +8,8 @@ description = "每天一点React | Render Props"
 summary = "render prop 是一个用于告知组件需要渲染什么内容的函数 prop"
 include_toc = true
 show_comments = false
-
+tags = ["react"]
+categories = "javascript"
 +++
 
 

@@ -3,6 +3,8 @@ date = "2014-07-11T10:54:24+02:00"
 title = "git reset --hard 操作后的数据恢复"
 author = "Chris-dc"
 slug = 'git reset'
+categories = ["git"]
+tags = ["git reset", "数据恢复"]
 +++
 
 在进行正文之前先简单介绍下`git reset` 命令

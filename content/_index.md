@@ -1,6 +1,6 @@
 +++
 title = "Chris Blogs | 前端"
-# featured_image = '/images/gohugo-default-sample-hero-image.jpg'
+featured_image = '/images/gohugo-default-sample-hero-image.jpg'
 description = "这个是简介"
 +++
 
