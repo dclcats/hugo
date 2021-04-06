@@ -1,14 +1,14 @@
-+++
-title = "Github访问慢？"
-date = 2021-04-01T10:33:40+08:00
-draft = false
-slug = "a84ac7fa"
-author = "Chris-dc"
-description = "Github访问慢问题，及解决方案"
-summary = "Github访问慢问题，以及一些常规的解决方案"
-include_toc = true
-show_comments = false
-+++
+---
+title: "Github访问慢？"
+date: 2021-04-01T10:33:40+08:00
+draft: false
+slug: "a84ac7fa"
+author: "Chris-dc"
+description: "Github访问慢问题，及解决方案"
+summary: "Github访问慢问题，以及一些常规的解决方案"
+include_toc: true
+show_comments: false
+---
 
 
 

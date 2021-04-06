@@ -1,12 +1,12 @@
-+++
-title = "Mac制作Ubuntu启动盘"
-date = 2021-03-23T14:13:28+08:00
-draft = false
-slug = "mac-ubuntu"
-author = "Chris-dc"
-description = ""
-summary = ""
-+++
+---
+title: "Mac制作Ubuntu启动盘"
+date: 2021-03-23T14:13:28+08:00
+draft: false
+slug: "mac-ubuntu"
+author: "Chris-dc"
+summary: "通过Mac制作Ubuntu启动盘"
+description: ""
+---
 
 ## 下载Ubuntu镜像文件
 Ubuntu官网下载所需要的的镜像文件（iso）

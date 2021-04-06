@@ -1,16 +1,16 @@
-+++
-title = "每天一点React | Render Props"
-date = 2021-03-29T15:04:46+08:00
-draft = false
-slug = "6ce00058"
-author = "Chris-dc"
-description = "每天一点React | Render Props"
-summary = "render prop 是一个用于告知组件需要渲染什么内容的函数 prop"
-include_toc = true
-show_comments = false
-tags = ["react"]
-categories = "javascript"
-+++
+---
+title: "每天一点React | Render Props"
+date: 2021-03-29T15:04:46+08:00
+draft: false
+slug: "6ce00058"
+author: "Chris-dc"
+description: "每天一点React | Render Props"
+toc: true
+show_comments: false
+summary: "render prop 是一个用于告知组件需要渲染什么内容的函数 prop"
+tags: ["react"]
+categories: ["javascript"]
+---
 
 
 
