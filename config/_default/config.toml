@@ -6,9 +6,9 @@ theme = "ananke"
 defaultContentLanguage = "zh"
 
 # fix 相对路径图片问题
-uglyurls = true
+# uglyurls = true
 # fix 图片路径大小写敏感问题
-disablePathToLower = true
+# disablePathToLower = true
 
 # emoji 支持开启
 # enableEmoji = true
@@ -25,3 +25,30 @@ summaryLength = 3
   tag = "tags"
   series = "series"
   category = "categories"
+
+
+[[menu.main]]             # config your menu              # 配置目录
+  name = "首页"
+  weight = 10
+  identifier = "home"
+  url = "/"
+[[menu.main]]
+  name = "归档"
+  weight = 20
+  identifier = "归档"
+  url = "/posts/"
+[[menu.main]]
+  name = "类别"
+  weight = 30
+  identifier = "categories"
+  url = "/categories/"
+[[menu.main]]
+  name = "标签"
+  weight = 40
+  identifier = "标签"
+  url = "/tags/"
+[[menu.main]]
+  name = "关于"
+  weight = 50
+  identifier = "about"
+  url = "/about/"
