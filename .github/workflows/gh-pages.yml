@@ -19,6 +19,14 @@ jobs:
         with:
           hugo-version: 'latest'
           extended: true
+      
+      - name: Gitalk secret edit
+        env:
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+        run: ./setGitalkSecret.sh
+        working-directory: ./config/_default
+        shell: bash
 
       - name: Build
         run: hugo --minify -e github

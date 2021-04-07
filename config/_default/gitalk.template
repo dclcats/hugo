@@ -1,0 +1,5 @@
+  [params.gitalk]
+    owner = "dclcats"
+    repo = "comments"
+    clientId = "${CLIENT_ID}"
+    clientSecret = "${CLIENT_SECRET}"
