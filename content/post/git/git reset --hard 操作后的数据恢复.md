@@ -1,5 +1,5 @@
 ---
-date: "2014-07-11T10:54:24+02:00"
+date: "2018-05-07T17:12:24+02:00"
 title: "git reset --hard 操作后的数据恢复"
 author: "Chris-dc"
 slug: 'git reset'
