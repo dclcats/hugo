@@ -24,7 +24,7 @@ jobs:
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-        run: chmod +x ./setGitalkSecret.sh | ./setGitalkSecret.sh
+        run: ./setGitalkSecret.sh
         working-directory: ./config/_default
         shell: bash
 
