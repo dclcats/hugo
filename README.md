@@ -5,6 +5,14 @@
 
 本项目为 `hugo` 实现的博客项目
 
+## hugo 基础命令
+
+### 新建文章
+```shell
+hugo new post/first.md
+```
+
+
 ### git-commit.sh 文件说明
 
 `git-commit.sh ` 为shell脚本，实现git的提交操作
