@@ -30,7 +30,7 @@ show_comments: false
 
 
 
-通过域名DNS查询网站，查询对应域名的IP（www.ipaddress.com / http://tool.chinaz.com/dns）
+通过域名DNS查询网站，查询对应域名的IP（[https://www.ipaddress.com](https://www.ipaddress.com) / [http://tool.chinaz.com/dns](http://tool.chinaz.com/dns)）
 
 常用网站(其他的根据情况自行补充)
 
