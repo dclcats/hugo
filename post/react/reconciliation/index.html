@@ -1,17 +1,230 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>每天一点react | 协调 - Chris</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Chris-dc"><meta name=description content="react 之 reconciliation 学习总结"><meta name=keywords content="Chris,blog,前端,javascript,js,vue,react"><meta name=generator content="Hugo 0.84.4 with theme even"><link rel=canonical href=https://dclcats.github.io/hugo/post/react/reconciliation/><link rel=apple-touch-icon sizes=180x180 href=/hugo/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/hugo/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/hugo/favicon-16x16.png><link rel=manifest href=/hugo/manifest.json><link rel=mask-icon href=/hugo/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><link href=/hugo/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="每天一点react | 协调"><meta property="og:description" content="react 之 reconciliation 学习总结"><meta property="og:type" content="article"><meta property="og:url" content="https://dclcats.github.io/hugo/post/react/reconciliation/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-03-26T10:20:34+08:00"><meta property="article:modified_time" content="2021-03-26T10:20:34+08:00"><meta itemprop=name content="每天一点react | 协调"><meta itemprop=description content="react 之 reconciliation 学习总结"><meta itemprop=datePublished content="2021-03-26T10:20:34+08:00"><meta itemprop=dateModified content="2021-03-26T10:20:34+08:00"><meta itemprop=wordCount content="1058"><meta itemprop=keywords content="react,"><meta name=twitter:card content="summary"><meta name=twitter:title content="每天一点react | 协调"><meta name=twitter:description content="react 之 reconciliation 学习总结"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/hugo/ class=logo>Chris</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/hugo/><li class=mobile-menu-item>首页</li></a><a href=/hugo/post/><li class=mobile-menu-item>归档</li></a><a href=/hugo/categories/><li class=mobile-menu-item>类别</li></a><a href=/hugo/tags/><li class=mobile-menu-item>标签</li></a><a href=/hugo/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/hugo/ class=logo>Chris</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/hugo/>首页</a></li><li class=menu-item><a class=menu-item-link href=/hugo/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/hugo/categories/>类别</a></li><li class=menu-item><a class=menu-item-link href=/hugo/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/hugo/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>每天一点react | 协调</h1><div class=post-meta><span class=post-time>2021-03-26</span><div class=post-category><a href=/hugo/categories/javascript/>javascript</a></div><span class=more-meta>约 1058 字</span>
-<span class=more-meta>预计阅读 3 分钟</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 次阅读</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#总结针对有效利用diffing算法优化自己的代码>总结(针对有效利用diffing算法优化自己的代码)</a></li><li><a href=#diffing-算法>Diffing 算法</a><ul><li><a href=#对比不同类型的元素>对比不同类型的元素</a></li><li><a href=#对比同一类型的元素>对比同一类型的元素</a></li><li><a href=#对比同类型的组件元素>对比同类型的组件元素（？）</a></li><li><a href=#对子节点进行递归>对子节点进行递归</a></li><li><a href=#keys>Keys</a></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><p>react 的 reconciliation 主要描述了在实现 React 的 “diffing” 算法过程中所作出的设计决策，以保证组件更新可预测，且在繁杂业务场景下依然保持应用的高性能。</p><h2 id=总结针对有效利用diffing算法优化自己的代码>总结(针对有效利用diffing算法优化自己的代码)</h2><blockquote><ol><li>尽量避免节点元素的变更（e.g. <code>&lt;p></code> -> <code>&lt;div></code>）</li><li>节点元素属性变更最小化（p.s. 能只改一个属性，就不改两个属性）</li><li>列表节点设置唯一key，key保证在页面生命周期中的唯一性和不变性（p.s. 针对循环列表尽量避免使用数组的key，在存在新增和删除时，单一元素在数组中的key是变化的）</li></ol></blockquote><h2 id=diffing-算法>Diffing 算法</h2><p>当对比两棵树时，React 首先比较两棵树的根节点。不同类型的根节点元素会有不同的形态。</p><h3 id=对比不同类型的元素>对比不同类型的元素</h3><p>当节点的元素变更会导致，当前节点会触发一个完整的销毁重建流程（即：当前节点及其子节点均会被销毁之后重新渲染，不会触发对比更新，也就是子节点已渲染内容不会被重新利用）。应尽量避免根节点（或者高级节点）的元素变更（比如 <code>&lt;span></code> -> <code>&lt;div></code>）</p><p><strong>总结：应尽量避免节点元素的变更，造成更大的消耗</strong></p><h3 id=对比同一类型的元素>对比同一类型的元素</h3><p>react 回比对属性的变更，仅更新已变更属性</p><p>style样式也会一一对比之后实现更新最小化</p><p><strong>总结：属性变更应保证变更最小化</strong></p><h3 id=对比同类型的组件元素>对比同类型的组件元素（？）</h3><p>当一个组件更新时，组件实例会保持不变，因此可以在不同的渲染时保持 state 一致。React 将更新该组件实例的 props 以保证与最新的元素保持一致，并且调用该实例的 <code>UNSAFE_componentWillReceiveProps()</code>、<code>UNSAFE_componentWillUpdate()</code> 以及 <code>componentDidUpdate()</code> 方法。</p><p>下一步，调用 <code>render()</code> 方法，diff 算法将在之前的结果以及新的结果中进行递归。</p><h3 id=对子节点进行递归>对子节点进行递归</h3><p>节点的更新满足以上条件。</p><p>默认情况下，当递归 DOM 节点的子元素时，React 会同时遍历两个子元素的列表；当产生差异时，生成一个 mutation。</p><p>针对子节点的新增删除，如果新的子节点插在子节点列表末尾，消耗最小（React会匹配前边所有的节点被有效利用，只是单纯添加新的节点到末尾）；如果新的节点加在子节点列表开头，消耗最大（React 判断新旧树第一个元素不一致，便会销毁之后所有的子节点然后再重建，此时的消耗会是重新渲染所有的子节点）</p><h3 id=keys>Keys</h3><p>解决以上问题的方法就是利用Keys；配置Keys之后，React会通过Key去匹配新旧节点，保证已渲染节点的有效利用</p><p><em>注意：针对于循环生成的子节点，单纯通过数组的key（即 数据所在数组中的位置）设置的key，对于新增和删除操作并不会起到有效作用，需要保证在新增和删除时节点的key的唯一性</em></p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
-<span class=item-content>Chris-dc</span></p><p class=copyright-item><span class=item-title>上次更新</span>
-<span class=item-content>2021-03-26</span></p></div><footer class=post-footer><div class=post-tags><a href=/hugo/tags/react/>react</a></div><nav class=post-nav><a class=prev href=/hugo/post/react/617f0cd9/><i class="iconfont icon-left"></i>
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>每天一点react | 协调 - Chris</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="Chris-dc"><meta name=description content="react 之 reconciliation 学习总结"><meta name=keywords content="Chris,blog,前端,javascript,js,vue,react">
+<meta name=generator content="Hugo 0.87.0 with theme even">
+<link rel=canonical href=https://dclcats.github.io/hugo/post/react/reconciliation/>
+<link rel=apple-touch-icon sizes=180x180 href=/hugo/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/hugo/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/hugo/favicon-16x16.png>
+<link rel=manifest href=/hugo/manifest.json>
+<link rel=mask-icon href=/hugo/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/hugo/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="每天一点react | 协调">
+<meta property="og:description" content="react 之 reconciliation 学习总结">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dclcats.github.io/hugo/post/react/reconciliation/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2021-03-26T10:20:34+08:00">
+<meta property="article:modified_time" content="2021-03-26T10:20:34+08:00">
+<meta itemprop=name content="每天一点react | 协调">
+<meta itemprop=description content="react 之 reconciliation 学习总结"><meta itemprop=datePublished content="2021-03-26T10:20:34+08:00">
+<meta itemprop=dateModified content="2021-03-26T10:20:34+08:00">
+<meta itemprop=wordCount content="1058">
+<meta itemprop=keywords content="react,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="每天一点react | 协调">
+<meta name=twitter:description content="react 之 reconciliation 学习总结"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/hugo/ class=logo>Chris</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/hugo/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/hugo/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/hugo/categories/>
+<li class=mobile-menu-item>类别</li>
+</a><a href=/hugo/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/hugo/about/>
+<li class=mobile-menu-item>关于</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/hugo/ class=logo>Chris</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/hugo/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/hugo/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/hugo/categories/>类别</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/hugo/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/hugo/about/>关于</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>每天一点react | 协调</h1>
+<div class=post-meta>
+<span class=post-time> 2021-03-26 </span>
+<div class=post-category>
+<a href=/hugo/categories/javascript/> javascript </a>
+</div>
+<span class=more-meta> 约 1058 字 </span>
+<span class=more-meta> 预计阅读 3 分钟 </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class="post-toc-content always-active">
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#总结针对有效利用diffing算法优化自己的代码>总结(针对有效利用diffing算法优化自己的代码)</a></li>
+<li><a href=#diffing-算法>Diffing 算法</a>
+<ul>
+<li><a href=#对比不同类型的元素>对比不同类型的元素</a></li>
+<li><a href=#对比同一类型的元素>对比同一类型的元素</a></li>
+<li><a href=#对比同类型的组件元素>对比同类型的组件元素（？）</a></li>
+<li><a href=#对子节点进行递归>对子节点进行递归</a></li>
+<li><a href=#keys>Keys</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>react 的 reconciliation 主要描述了在实现 React 的 “diffing” 算法过程中所作出的设计决策，以保证组件更新可预测，且在繁杂业务场景下依然保持应用的高性能。</p>
+<h2 id=总结针对有效利用diffing算法优化自己的代码>总结(针对有效利用diffing算法优化自己的代码)</h2>
+<blockquote>
+<ol>
+<li>尽量避免节点元素的变更（e.g. <code>&lt;p></code> -> <code>&lt;div></code>）</li>
+<li>节点元素属性变更最小化（p.s. 能只改一个属性，就不改两个属性）</li>
+<li>列表节点设置唯一key，key保证在页面生命周期中的唯一性和不变性（p.s. 针对循环列表尽量避免使用数组的key，在存在新增和删除时，单一元素在数组中的key是变化的）</li>
+</ol>
+</blockquote>
+<h2 id=diffing-算法>Diffing 算法</h2>
+<p>当对比两棵树时，React 首先比较两棵树的根节点。不同类型的根节点元素会有不同的形态。</p>
+<h3 id=对比不同类型的元素>对比不同类型的元素</h3>
+<p>当节点的元素变更会导致，当前节点会触发一个完整的销毁重建流程（即：当前节点及其子节点均会被销毁之后重新渲染，不会触发对比更新，也就是子节点已渲染内容不会被重新利用）。应尽量避免根节点（或者高级节点）的元素变更（比如 <code>&lt;span></code> -> <code>&lt;div></code>）</p>
+<p><strong>总结：应尽量避免节点元素的变更，造成更大的消耗</strong></p>
+<h3 id=对比同一类型的元素>对比同一类型的元素</h3>
+<p>react 回比对属性的变更，仅更新已变更属性</p>
+<p>style样式也会一一对比之后实现更新最小化</p>
+<p><strong>总结：属性变更应保证变更最小化</strong></p>
+<h3 id=对比同类型的组件元素>对比同类型的组件元素（？）</h3>
+<p>当一个组件更新时，组件实例会保持不变，因此可以在不同的渲染时保持 state 一致。React 将更新该组件实例的 props 以保证与最新的元素保持一致，并且调用该实例的 <code>UNSAFE_componentWillReceiveProps()</code>、<code>UNSAFE_componentWillUpdate()</code> 以及 <code>componentDidUpdate()</code> 方法。</p>
+<p>下一步，调用 <code>render()</code> 方法，diff 算法将在之前的结果以及新的结果中进行递归。</p>
+<h3 id=对子节点进行递归>对子节点进行递归</h3>
+<p>节点的更新满足以上条件。</p>
+<p>默认情况下，当递归 DOM 节点的子元素时，React 会同时遍历两个子元素的列表；当产生差异时，生成一个 mutation。</p>
+<p>针对子节点的新增删除，如果新的子节点插在子节点列表末尾，消耗最小（React会匹配前边所有的节点被有效利用，只是单纯添加新的节点到末尾）；如果新的节点加在子节点列表开头，消耗最大（React 判断新旧树第一个元素不一致，便会销毁之后所有的子节点然后再重建，此时的消耗会是重新渲染所有的子节点）</p>
+<h3 id=keys>Keys</h3>
+<p>解决以上问题的方法就是利用Keys；配置Keys之后，React会通过Key去匹配新旧节点，保证已渲染节点的有效利用</p>
+<p><em>注意：针对于循环生成的子节点，单纯通过数组的key（即 数据所在数组中的位置）设置的key，对于新增和删除操作并不会起到有效作用，需要保证在新增和删除时节点的key的唯一性</em></p>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>文章作者</span>
+<span class=item-content>Chris-dc</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>上次更新</span>
+<span class=item-content>
+2021-03-26
+</span>
+</p>
+</div>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=/hugo/tags/react/>react</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/hugo/post/react/617f0cd9/>
+<i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">每天一点React | Refs & DOM</span>
-<span class="prev-text nav-mobile">上一篇</span></a>
-<a class=next href=/hugo/post/system/mac-ubuntu/><span class="next-text nav-default">Mac制作Ubuntu启动盘</span>
+<span class="prev-text nav-mobile">上一篇</span>
+</a>
+<a class=next href=/hugo/post/system/mac-ubuntu/>
+<span class="next-text nav-default">Mac制作Ubuntu启动盘</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=gitalk-container></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js crossorigin=anonymous></script><script type=text/javascript>var gitalk=new Gitalk({id:'2021-03-26 10:20:34 \u002b0800 \u002b0800',title:'每天一点react | 协调',clientID:'4873aca2f3f310d47ccf',clientSecret:'c2d8bf396230e0dcaf8c985d7adbcaa2416123aa',repo:'comments',owner:'dclcats',admin:['dclcats'],body:decodeURI(location.href)});gitalk.render('gitalk-container')</script><noscript>Please enable JavaScript to view the <a href=https://github.com/gitalk/gitalk>comments powered by gitalk.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=chichucan@126.com class="iconfont icon-email" title=email></a><a href=https://github.com/dclcats/ class="iconfont icon-github" title=github></a><a href=https://dclcats.github.io/hugo/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<i class="iconfont icon-right"></i>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<div id=gitalk-container></div>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css crossorigin=anonymous>
+<script src=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js crossorigin=anonymous></script>
+<script type=text/javascript>var gitalk=new Gitalk({id:'2021-03-26 10:20:34 \u002b0800 \u002b0800',title:'每天一点react | 协调',clientID:'4873aca2f3f310d47ccf',clientSecret:'c2d8bf396230e0dcaf8c985d7adbcaa2416123aa',repo:'comments',owner:'dclcats',admin:['dclcats'],body:decodeURI(location.href)});gitalk.render('gitalk-container')</script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/gitalk/gitalk>comments powered by gitalk.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=chichucan@126.com class="iconfont icon-email" title=email></a>
+<a href=https://github.com/dclcats/ class="iconfont icon-github" title=github></a>
+<a href=https://dclcats.github.io/hugo/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
 <span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 次</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 次 </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 人 </span>
+</div>
+<span class=copyright-year>
+&copy;
 2016 -
-2021<span class=heart><i class="iconfont icon-heart"></i></span><span>Chris</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/hugo/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script></body></html>
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>Chris</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/hugo/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+</body>
+</html>

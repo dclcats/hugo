@@ -1,23 +1,229 @@
-<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>git reset --hard 操作后的数据恢复 - Chris</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Chris-dc"><meta name=description content="在进行正文之前先简单介绍下git reset 命令 git reset git reset 命令用于改变当"><meta name=keywords content="Chris,blog,前端,javascript,js,vue,react"><meta name=generator content="Hugo 0.84.4 with theme even"><link rel=canonical href=https://dclcats.github.io/hugo/post/git/git-reset/><link rel=apple-touch-icon sizes=180x180 href=/hugo/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/hugo/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/hugo/favicon-16x16.png><link rel=manifest href=/hugo/manifest.json><link rel=mask-icon href=/hugo/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><link href=/hugo/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="git reset --hard 操作后的数据恢复"><meta property="og:description" content="在进行正文之前先简单介绍下git reset 命令 git reset git reset 命令用于改变当"><meta property="og:type" content="article"><meta property="og:url" content="https://dclcats.github.io/hugo/post/git/git-reset/"><meta property="article:section" content="post"><meta property="article:published_time" content="2018-05-07T17:12:24+02:00"><meta property="article:modified_time" content="2018-05-07T17:12:24+02:00"><meta itemprop=name content="git reset --hard 操作后的数据恢复"><meta itemprop=description content="在进行正文之前先简单介绍下git reset 命令 git reset git reset 命令用于改变当"><meta itemprop=datePublished content="2018-05-07T17:12:24+02:00"><meta itemprop=dateModified content="2018-05-07T17:12:24+02:00"><meta itemprop=wordCount content="1117"><meta itemprop=keywords content="git reset,数据恢复,"><meta name=twitter:card content="summary"><meta name=twitter:title content="git reset --hard 操作后的数据恢复"><meta name=twitter:description content="在进行正文之前先简单介绍下git reset 命令 git reset git reset 命令用于改变当"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/hugo/ class=logo>Chris</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/hugo/><li class=mobile-menu-item>首页</li></a><a href=/hugo/post/><li class=mobile-menu-item>归档</li></a><a href=/hugo/categories/><li class=mobile-menu-item>类别</li></a><a href=/hugo/tags/><li class=mobile-menu-item>标签</li></a><a href=/hugo/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/hugo/ class=logo>Chris</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/hugo/>首页</a></li><li class=menu-item><a class=menu-item-link href=/hugo/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/hugo/categories/>类别</a></li><li class=menu-item><a class=menu-item-link href=/hugo/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/hugo/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>git reset --hard 操作后的数据恢复</h1><div class=post-meta><span class=post-time>2018-05-07</span><div class=post-category><a href=/hugo/categories/git/>git</a></div><span class=more-meta>约 1117 字</span>
-<span class=more-meta>预计阅读 3 分钟</span>
-<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 次阅读</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><ul><li><a href=#git-reset>git reset</a></li></ul></li></ul></li></ul></nav></div></div><div class=post-content><p>在进行正文之前先简单介绍下<code>git reset</code> 命令</p><h3 id=git-reset>git reset</h3><p><code>git reset</code> 命令用于改变当前的仓库状态，简单的场景用例：假设一次修改了两个文件，然而需要对这两个文件分别进行两次提交，在进行缓存操作时（<code>git add</code>），不小心将两个文件都进行了缓存，此时我们需要对其中一个文件取消缓存，此时就需要<code>git reset</code> 操作来实现，如下图
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>git reset --hard 操作后的数据恢复 - Chris</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="Chris-dc"><meta name=description content="在进行正文之前先简单介绍下git reset 命令 git reset git reset 命令用于改变当"><meta name=keywords content="Chris,blog,前端,javascript,js,vue,react">
+<meta name=generator content="Hugo 0.87.0 with theme even">
+<link rel=canonical href=https://dclcats.github.io/hugo/post/git/git-reset/>
+<link rel=apple-touch-icon sizes=180x180 href=/hugo/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/hugo/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/hugo/favicon-16x16.png>
+<link rel=manifest href=/hugo/manifest.json>
+<link rel=mask-icon href=/hugo/safari-pinned-tab.svg color=#5bbad5>
+<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/hugo/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<meta property="og:title" content="git reset --hard 操作后的数据恢复">
+<meta property="og:description" content="在进行正文之前先简单介绍下git reset 命令 git reset git reset 命令用于改变当">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://dclcats.github.io/hugo/post/git/git-reset/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2018-05-07T17:12:24+02:00">
+<meta property="article:modified_time" content="2018-05-07T17:12:24+02:00">
+<meta itemprop=name content="git reset --hard 操作后的数据恢复">
+<meta itemprop=description content="在进行正文之前先简单介绍下git reset 命令 git reset git reset 命令用于改变当"><meta itemprop=datePublished content="2018-05-07T17:12:24+02:00">
+<meta itemprop=dateModified content="2018-05-07T17:12:24+02:00">
+<meta itemprop=wordCount content="1117">
+<meta itemprop=keywords content="git reset,数据恢复,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="git reset --hard 操作后的数据恢复">
+<meta name=twitter:description content="在进行正文之前先简单介绍下git reset 命令 git reset git reset 命令用于改变当"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/hugo/ class=logo>Chris</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/hugo/>
+<li class=mobile-menu-item>首页</li>
+</a><a href=/hugo/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/hugo/categories/>
+<li class=mobile-menu-item>类别</li>
+</a><a href=/hugo/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/hugo/about/>
+<li class=mobile-menu-item>关于</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/hugo/ class=logo>Chris</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/hugo/>首页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/hugo/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/hugo/categories/>类别</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/hugo/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/hugo/about/>关于</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>git reset --hard 操作后的数据恢复</h1>
+<div class=post-meta>
+<span class=post-time> 2018-05-07 </span>
+<div class=post-category>
+<a href=/hugo/categories/git/> git </a>
+</div>
+<span class=more-meta> 约 1117 字 </span>
+<span class=more-meta> 预计阅读 3 分钟 </span>
+<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class="post-toc-content always-active">
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href=#git-reset>git reset</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>在进行正文之前先简单介绍下<code>git reset</code> 命令</p>
+<h3 id=git-reset>git reset</h3>
+<p><code>git reset</code> 命令用于改变当前的仓库状态，简单的场景用例：假设一次修改了两个文件，然而需要对这两个文件分别进行两次提交，在进行缓存操作时（<code>git add</code>），不小心将两个文件都进行了缓存，此时我们需要对其中一个文件取消缓存，此时就需要<code>git reset</code> 操作来实现，如下图
 <img src=https://user-images.githubusercontent.com/26424129/39693980-53792fbe-5218-11e8-9d88-7aa3a7ee5443.png alt=image>
-然后，对<code>b.txt</code>进行<code>commit</code>操作，然后再对<code>a.txt</code>进行<code>add & commit</code>操作</p><p>对于<code>git reset</code>命令添加了**&ndash;hard** 参数后会怎样呢，在<a href=https://git-scm.com/docs/git-reset>git官网的reference上</a> 有如下一段话</p><p>也就是说，添加<code>--hard</code>参数后，会回到上次<code>commit</code>的状态，也就是说从上次<code>commit</code>之后的的修改都将被重置，换句话说这些数据都丢失了，所以要谨慎操作哦。</p><p><img src=https://user-images.githubusercontent.com/26424129/39694690-c4e15864-521a-11e8-8be5-75c2a5f91780.png alt=image></p><p>前置知识就到这里了，开始今天的重点。</p><p>当我们进行了<code>git reset --hard</code>操作进行了版本回退，现在我们又需要之前的修改信息，也就是说我们需要版本回退之前的文件信息，此时我分了三种情况</p><ol><li>之前的修改进行了 <code>commit</code> 提交，也就是说我们回退前的修改（曾经）存在于版本里;</li><li>之前的修改未进行<code>commit</code>提交，但是进行了 <code>git add</code> 操作；</li><li>之前的修改未进行 <code>commit</code> 提交，也未进行<code>git add</code>操作。</li></ol><p>如果时第一种情况，很简单我们拿到之前修改的<code>commit</code>的哈希值（或者说id），然后执行 <code>git reset --hard [hash]</code>就可以回退到之前修改的状态。
+然后，对<code>b.txt</code>进行<code>commit</code>操作，然后再对<code>a.txt</code>进行<code>add & commit</code>操作</p>
+<p>对于<code>git reset</code>命令添加了**&ndash;hard** 参数后会怎样呢，在<a href=https://git-scm.com/docs/git-reset target=_blank>git官网的reference上</a> 有如下一段话</p>
+<p>也就是说，添加<code>--hard</code>参数后，会回到上次<code>commit</code>的状态，也就是说从上次<code>commit</code>之后的的修改都将被重置，换句话说这些数据都丢失了，所以要谨慎操作哦。</p>
+<p><img src=https://user-images.githubusercontent.com/26424129/39694690-c4e15864-521a-11e8-8be5-75c2a5f91780.png alt=image></p>
+<p>前置知识就到这里了，开始今天的重点。</p>
+<p>当我们进行了<code>git reset --hard</code>操作进行了版本回退，现在我们又需要之前的修改信息，也就是说我们需要版本回退之前的文件信息，此时我分了三种情况</p>
+<ol>
+<li>之前的修改进行了 <code>commit</code> 提交，也就是说我们回退前的修改（曾经）存在于版本里;</li>
+<li>之前的修改未进行<code>commit</code>提交，但是进行了 <code>git add </code> 操作；</li>
+<li>之前的修改未进行 <code>commit</code> 提交，也未进行<code>git add</code>操作。</li>
+</ol>
+<p>如果时第一种情况，很简单我们拿到之前修改的<code>commit</code>的哈希值（或者说id），然后执行 <code>git reset --hard [hash]</code>就可以回退到之前修改的状态。
 怎么拿<code>hash</code>， 这个好说，可以执行命令<code>git reflog</code>命令，它会显示出你之前的所有操作
-像这个</p><p><img src=https://user-images.githubusercontent.com/26424129/39695387-f6a31e58-521c-11e8-8203-5af2c60b1e66.png alt=image></p><p><code>62f039e</code> 就是我的<code>reflog</code>提交的哈希值，对其进行<code>reset</code>即可</p><p>如果是第三种情况，不好意思暂时还没有找回的办法，如果你有欢迎拿出来大家交流</p><p>今天的重点就是第二种情况，毕竟曾经我也以为此情况无解，直到后来这边文章诞生前。</p><p>今天的主角命令 <code>git fsck</code>，这里呢不具体讲解此命令，只是简单描述利用此命令进行文件恢复。</p><p><img src=https://user-images.githubusercontent.com/26424129/39695724-2540e294-521e-11e8-9171-c4596fcdef25.png alt=image></p><p><img src=https://user-images.githubusercontent.com/26424129/39695739-30cf161c-521e-11e8-9124-521a9815ce06.png alt=image></p><p>如图示，我新建了文件<code>c.txt</code>并添加了内容 &lsquo;git fsck&rsquo;，添加到缓存之后进行了<code>reset</code>操作， 此时因为没有进行<code>git commit</code>操作所以没有hash值，可供恢复，这个时候需要进行操作 <code>git fsck --lost-found</code>操作，返回如下结果：</p><p><img src=https://user-images.githubusercontent.com/26424129/39697557-e8e843c2-5223-11e8-88dc-14ae11c22f36.png alt=image></p><p>关于此命令，git官网的解释
+像这个</p>
+<p><img src=https://user-images.githubusercontent.com/26424129/39695387-f6a31e58-521c-11e8-8203-5af2c60b1e66.png alt=image></p>
+<p><code>62f039e</code> 就是我的<code>reflog</code>提交的哈希值，对其进行<code>reset</code>即可</p>
+<p>如果是第三种情况，不好意思暂时还没有找回的办法，如果你有欢迎拿出来大家交流</p>
+<p>今天的重点就是第二种情况，毕竟曾经我也以为此情况无解，直到后来这边文章诞生前。</p>
+<p>今天的主角命令 <code>git fsck</code>，这里呢不具体讲解此命令，只是简单描述利用此命令进行文件恢复。</p>
+<p><img src=https://user-images.githubusercontent.com/26424129/39695724-2540e294-521e-11e8-9171-c4596fcdef25.png alt=image></p>
+<p><img src=https://user-images.githubusercontent.com/26424129/39695739-30cf161c-521e-11e8-9124-521a9815ce06.png alt=image></p>
+<p>如图示，我新建了文件<code>c.txt</code>并添加了内容 &lsquo;git fsck&rsquo;，添加到缓存之后进行了<code>reset</code>操作， 此时因为没有进行<code>git commit</code>操作所以没有hash值，可供恢复，这个时候需要进行操作 <code>git fsck --lost-found</code>操作，返回如下结果：</p>
+<p><img src=https://user-images.githubusercontent.com/26424129/39697557-e8e843c2-5223-11e8-88dc-14ae11c22f36.png alt=image></p>
+<p>关于此命令，git官网的解释
 <img src=https://user-images.githubusercontent.com/26424129/39697417-76095378-5223-11e8-8453-654d38de8cd9.png alt=image>
-根据提示，找到目录'.git/lost-found'，可以看到，</p><p><img src=https://user-images.githubusercontent.com/26424129/39697621-191fa13e-5224-11e8-901a-b9a7f881b396.png alt=image></p><p>我们在‘commit’和‘other’目录下分别看到命令窗口打印出的文件，在‘other‘目录下找出之前遗失的文件
+根据提示，找到目录'.git/lost-found'，可以看到，</p>
+<p><img src=https://user-images.githubusercontent.com/26424129/39697621-191fa13e-5224-11e8-901a-b9a7f881b396.png alt=image></p>
+<p>我们在‘commit’和‘other’目录下分别看到命令窗口打印出的文件，在‘other‘目录下找出之前遗失的文件
 <img src=https://user-images.githubusercontent.com/26424129/39697733-87c3c23c-5224-11e8-8755-443df0853a26.png alt=image>
-然后新建&rsquo;c.txt&rsquo;文件，并将文件内容复制过去，结束。</p><p>是不是很麻烦，特别是一次提交的文件多了，一个一个新建（修改）复制过去好烦哦。</p><p>是的很烦，所以保持良好的习惯。永远不要让这种操作降临到自己身上才是正道。（这只是为不可控的意外情况准备的）</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
-<span class=item-content>Chris-dc</span></p><p class=copyright-item><span class=item-title>上次更新</span>
-<span class=item-content>2018-05-07</span></p></div><footer class=post-footer><div class=post-tags><a href=/hugo/tags/git-reset/>git reset</a>
-<a href=/hugo/tags/%E6%95%B0%E6%8D%AE%E6%81%A2%E5%A4%8D/>数据恢复</a></div><nav class=post-nav><a class=prev href=/hugo/post/system/mac-ubuntu/><i class="iconfont icon-left"></i>
+然后新建&rsquo;c.txt&rsquo;文件，并将文件内容复制过去，结束。</p>
+<p>是不是很麻烦，特别是一次提交的文件多了，一个一个新建（修改）复制过去好烦哦。</p>
+<p>是的很烦，所以保持良好的习惯。永远不要让这种操作降临到自己身上才是正道。（这只是为不可控的意外情况准备的）</p>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>文章作者</span>
+<span class=item-content>Chris-dc</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>上次更新</span>
+<span class=item-content>
+2018-05-07
+</span>
+</p>
+</div>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=/hugo/tags/git-reset/>git reset</a>
+<a href=/hugo/tags/%E6%95%B0%E6%8D%AE%E6%81%A2%E5%A4%8D/>数据恢复</a>
+</div>
+<nav class=post-nav>
+<a class=prev href=/hugo/post/system/mac-ubuntu/>
+<i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">Mac制作Ubuntu启动盘</span>
-<span class="prev-text nav-mobile">上一篇</span></a></nav></footer></article></div><div id=gitalk-container></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js crossorigin=anonymous></script><script type=text/javascript>var gitalk=new Gitalk({id:'2018-05-07 17:12:24 \u002b0200 \u002b0200',title:'git reset --hard 操作后的数据恢复',clientID:'4873aca2f3f310d47ccf',clientSecret:'c2d8bf396230e0dcaf8c985d7adbcaa2416123aa',repo:'comments',owner:'dclcats',admin:['dclcats'],body:decodeURI(location.href)});gitalk.render('gitalk-container')</script><noscript>Please enable JavaScript to view the <a href=https://github.com/gitalk/gitalk>comments powered by gitalk.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=chichucan@126.com class="iconfont icon-email" title=email></a><a href=https://github.com/dclcats/ class="iconfont icon-github" title=github></a><a href=https://dclcats.github.io/hugo/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=power-by>由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动</span>
+<span class="prev-text nav-mobile">上一篇</span>
+</a>
+</nav>
+</footer>
+</article>
+</div>
+<div id=gitalk-container></div>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css crossorigin=anonymous>
+<script src=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js crossorigin=anonymous></script>
+<script type=text/javascript>var gitalk=new Gitalk({id:'2018-05-07 17:12:24 \u002b0200 \u002b0200',title:'git reset --hard 操作后的数据恢复',clientID:'4873aca2f3f310d47ccf',clientSecret:'c2d8bf396230e0dcaf8c985d7adbcaa2416123aa',repo:'comments',owner:'dclcats',admin:['dclcats'],body:decodeURI(location.href)});gitalk.render('gitalk-container')</script>
+<noscript>Please enable JavaScript to view the <a href=https://github.com/gitalk/gitalk>comments powered by gitalk.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=chichucan@126.com class="iconfont icon-email" title=email></a>
+<a href=https://github.com/dclcats/ class="iconfont icon-github" title=github></a>
+<a href=https://dclcats.github.io/hugo/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=power-by>
+由 <a class=hexo-link href=https://gohugo.io>Hugo</a> 强力驱动
+</span>
 <span class=division>|</span>
-<span class=theme-info>主题 -
-<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a></span><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 次</span>
+<span class=theme-info>
+主题 -
+<a class=theme-link href=https://github.com/olOwOlo/hugo-theme-even>Even</a>
+</span>
+<div class=busuanzi-footer>
+<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 次 </span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
+<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 人 </span>
+</div>
+<span class=copyright-year>
+&copy;
 2016 -
-2021<span class=heart><i class="iconfont icon-heart"></i></span><span>Chris</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/hugo/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script></body></html>
+2021<span class=heart><i class="iconfont icon-heart"></i></span><span>Chris</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/hugo/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+</body>
+</html>
