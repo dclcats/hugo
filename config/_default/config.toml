@@ -90,7 +90,7 @@ summaryLength = 30
   version = "4.x"           # Used to give a friendly message when you have an incompatible update
   debug = false             # If true, load `eruda.min.js`. See https://github.com/liriliri/eruda
 
-  since = "2016"            # Site creation time          # 站点建立时间
+  since = "2021"            # Site creation time          # 站点建立时间
   # use public git repo url to link lastmod git commit, enableGitInfo should be true.
   # 指定 git 仓库地址，可以生成指向最近更新的 git commit 的链接，需要将 enableGitInfo 设置成 true.
   gitRepo = ""
@@ -210,9 +210,9 @@ summaryLength = 30
     pagePV = true
 
   [params.reward]                                         # 文章打赏
-    enable = false
-    wechat = "/path/to/your/wechat-qr-code.png"           # 微信二维码
-    alipay = "/path/to/your/alipay-qr-code.png"           # 支付宝二维码
+    enable = true
+    wechat = "/pay/wechat-reward-image.jpeg"           # 微信二维码
+    alipay = "/pay/alipay-reward-image.jpeg"           # 支付宝二维码
 
   [params.social]                                         # 社交链接
     a-email = "chichucan@126.com"
