@@ -1,5 +1,5 @@
 ---
-title: "Checkout Remote Error"
+title: "git checkout Remote branch Error"
 date: 2021-09-14T12:12:14+08:00
 draft: false
 slug: "d48900ec"
