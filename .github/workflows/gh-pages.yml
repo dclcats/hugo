@@ -41,14 +41,14 @@ jobs:
           user_email: 'github-actions[bot]@users.noreply.github.com'
 
       
-      - name: Create commit comment
-        uses: peter-evans/commit-comment@v1
-        with:
-          body: |
-            This is a multi-line test comment
-            - With GitHub **Markdown**
-            - Created by [commit-comment][1]
-            - "$GITHUB_SHA"
-            - {{ github.sha }}
+      # - name: Create commit comment
+      #   uses: peter-evans/commit-comment@v1
+      #   with:
+      #     body: |
+      #       This is a multi-line test comment
+      #       - With GitHub **Markdown**
+      #       - Created by [commit-comment][1]
+      #       - "$GITHUB_SHA"
+      #       - {{ github.sha }}
 
-            [1]: https://github.com/peter-evans/commit-comment
+      #       [1]: https://github.com/peter-evans/commit-comment
