@@ -40,17 +40,17 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
 
-      - id: test-env 
-        run: echo "::set-output name=test_id::123345"
+      # - id: test-env 
+      #   run: echo "::set-output name=test_id::123345"
 
 
-      - name: Create commit comment
-        uses: peter-evans/commit-comment@v1
-        with:
-          body: |
-            This is a multi-line test comment
-            - With GitHub **Markdown**
-            - Created by [commit-comment][1]
-            - Test id -- ${{steps.test-env.outputs.test_id}}
+      # - name: Create commit comment
+      #   uses: peter-evans/commit-comment@v1
+      #   with:
+      #     body: |
+      #       This is a multi-line test comment
+      #       - With GitHub **Markdown**
+      #       - Created by [commit-comment][1]
+      #       - Test id -- ${{steps.test-env.outputs.test_id}}
 
-            [1]: https://github.com/peter-evans/commit-comment
+      #       [1]: https://github.com/peter-evans/commit-comment
