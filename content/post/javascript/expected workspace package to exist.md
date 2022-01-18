@@ -1,7 +1,7 @@
 ---
 title: "Expected Workspace Package to Exist"
 date: 2022-01-11T15:56:40+08:00
-draft: true
+draft: false
 slug: "84c59066"
 author: "Chris-dc"
 description: "expected workspace package to exist"
