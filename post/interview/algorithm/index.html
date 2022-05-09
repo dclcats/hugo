@@ -26,20 +26,20 @@
 </span><span class=lnt>19
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>buble</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>arr</span> <span class=o>||</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>arr</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=kr>const</span> <span class=nx>len</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>len</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>j</span> <span class=o>&lt;</span> <span class=nx>len</span> <span class=o>-</span> <span class=nx>i</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>			<span class=k>if</span> <span class=p>(</span><span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span> <span class=o>&gt;</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span> <span class=o>+</span> <span class=mi>1</span><span class=p>])</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>				<span class=kr>const</span> <span class=nx>k</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>				<span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span> <span class=o>+</span> <span class=mi>1</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>				<span class=nx>arr</span><span class=p>[</span><span class=nx>j</span> <span class=o>+</span> <span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=nx>k</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>			<span class=p>}</span>
-</span></span><span class=line><span class=cl>		<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>arr</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>arr</span> <span class=o>||</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>arr</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>len</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>len</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>j</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>j</span> <span class=o>&lt;</span> <span class=nx>len</span> <span class=o>-</span> <span class=nx>i</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span> <span class=o>&gt;</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span> <span class=o>+</span> <span class=mi>1</span><span class=p>])</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>k</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>        <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span> <span class=o>+</span> <span class=mi>1</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>        <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span> <span class=o>+</span> <span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=nx>k</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>arr</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=nx>buble</span><span class=p>([</span><span class=mi>10</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>9</span><span class=p>,</span><span class=mi>8</span><span class=p>])</span>
@@ -64,20 +64,20 @@
 </span><span class=lnt>19
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>selection</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>arr</span> <span class=o>||</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>arr</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=kr>const</span> <span class=nx>len</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>len</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>j</span> <span class=o>=</span> <span class=nx>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>j</span> <span class=o>&lt;</span> <span class=nx>len</span><span class=p>;</span> <span class=nx>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>			<span class=k>if</span> <span class=p>(</span><span class=nx>arr</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>&gt;</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>])</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>				<span class=kr>const</span> <span class=nx>k</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>i</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>				<span class=nx>arr</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>				<span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span> <span class=o>=</span> <span class=nx>k</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>			<span class=p>}</span>
-</span></span><span class=line><span class=cl>		<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>arr</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>arr</span> <span class=o>||</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>arr</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>len</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>len</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>j</span> <span class=o>=</span> <span class=nx>i</span> <span class=o>+</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>j</span> <span class=o>&lt;</span> <span class=nx>len</span><span class=p>;</span> <span class=nx>j</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=nx>arr</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>&gt;</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>])</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>k</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>i</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>        <span class=nx>arr</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>        <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span> <span class=o>=</span> <span class=nx>k</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>arr</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=nx>selection</span><span class=p>([</span><span class=mi>10</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>9</span><span class=p>,</span><span class=mi>8</span><span class=p>])</span>
@@ -104,22 +104,22 @@
 </span><span class=lnt>21
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>insertion</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>arr</span> <span class=o>||</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>arr</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=kr>const</span> <span class=nx>len</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>len</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>j</span> <span class=o>=</span> <span class=nx>i</span><span class=p>;</span> <span class=nx>j</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>j</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>			<span class=k>if</span> <span class=p>(</span><span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span> <span class=o>&lt;</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span> <span class=o>-</span> <span class=mi>1</span><span class=p>])</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>				<span class=kr>const</span> <span class=nx>k</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span> <span class=o>-</span> <span class=mi>1</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>				<span class=nx>arr</span><span class=p>[</span><span class=nx>j</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>				<span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span> <span class=o>=</span> <span class=nx>k</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>			<span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>				<span class=k>break</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>			<span class=p>}</span>
-</span></span><span class=line><span class=cl>		<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>arr</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>arr</span> <span class=o>||</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>arr</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>len</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>len</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>j</span> <span class=o>=</span> <span class=nx>i</span><span class=p>;</span> <span class=nx>j</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>j</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>if</span> <span class=p>(</span><span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span> <span class=o>&lt;</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span> <span class=o>-</span> <span class=mi>1</span><span class=p>])</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>k</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span> <span class=o>-</span> <span class=mi>1</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>        <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span> <span class=o>-</span> <span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>        <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span> <span class=o>=</span> <span class=nx>k</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=k>break</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>arr</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=nx>insertion</span><span class=p>([</span><span class=mi>10</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>9</span><span class=p>,</span><span class=mi>8</span><span class=p>])</span>
@@ -147,23 +147,23 @@
 </span><span class=lnt>22
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>shellSort</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>arr</span> <span class=o>||</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>arr</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=kd>let</span> <span class=nx>len</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>gap</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nx>len</span> <span class=o>/</span> <span class=mi>2</span><span class=p>);</span> <span class=nx>gap</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>gap</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nx>gap</span> <span class=o>/</span> <span class=mi>2</span><span class=p>))</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=nx>gap</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>len</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>			<span class=kr>const</span> <span class=nx>tmp</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span>
-</span></span><span class=line><span class=cl>			<span class=kd>let</span> <span class=nx>j</span> <span class=o>=</span> <span class=nx>i</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>			<span class=k>while</span> <span class=p>(</span><span class=nx>j</span> <span class=o>&gt;=</span> <span class=nx>gap</span> <span class=o>&amp;&amp;</span> <span class=nx>tmp</span> <span class=o>&lt;</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span> <span class=o>-</span> <span class=nx>gap</span><span class=p>])</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>arr</span> <span class=o>||</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>arr</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>len</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>gap</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nx>len</span> <span class=o>/</span> <span class=mi>2</span><span class=p>);</span> <span class=nx>gap</span> <span class=o>&gt;</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>gap</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nx>gap</span> <span class=o>/</span> <span class=mi>2</span><span class=p>))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=nx>gap</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>len</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=kr>const</span> <span class=nx>tmp</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>      <span class=kd>let</span> <span class=nx>j</span> <span class=o>=</span> <span class=nx>i</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=k>while</span> <span class=p>(</span><span class=nx>j</span> <span class=o>&gt;=</span> <span class=nx>gap</span> <span class=o>&amp;&amp;</span> <span class=nx>tmp</span> <span class=o>&lt;</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span> <span class=o>-</span> <span class=nx>gap</span><span class=p>])</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>                <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span> <span class=o>=</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span> <span class=o>-</span> <span class=nx>gap</span><span class=p>];</span>
 </span></span><span class=line><span class=cl>                <span class=nx>j</span> <span class=o>-=</span> <span class=nx>gap</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>            <span class=p>}</span>
-</span></span><span class=line><span class=cl>			<span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span> <span class=o>=</span> <span class=nx>tmp</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>		<span class=p>}</span>
-</span></span><span class=line><span class=cl>		<span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>arr</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>arr</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span> <span class=o>=</span> <span class=nx>tmp</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>arr</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>arr</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=nx>shellSort</span><span class=p>([</span><span class=mi>10</span><span class=p>,</span><span class=mi>4</span><span class=p>,</span><span class=mi>2</span><span class=p>,</span><span class=mi>3</span><span class=p>,</span><span class=mi>7</span><span class=p>,</span><span class=mi>5</span><span class=p>,</span><span class=mi>9</span><span class=p>,</span><span class=mi>8</span><span class=p>])</span>
@@ -182,16 +182,16 @@
 </span><span class=lnt>13
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>fabonacci</span><span class=p>(</span><span class=nx>n</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=p>(</span><span class=nx>n</span> <span class=o>&lt;=</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>n</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=kd>let</span> <span class=nx>j</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=k>while</span> <span class=p>(</span><span class=o>--</span><span class=nx>n</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=nx>j</span> <span class=o>=</span> <span class=nx>i</span> <span class=o>+</span> <span class=nx>j</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>		<span class=nx>i</span> <span class=o>=</span> <span class=nx>j</span> <span class=o>-</span> <span class=nx>i</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>j</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=nx>n</span> <span class=o>&lt;=</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>n</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>j</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>while</span> <span class=p>(</span><span class=o>--</span><span class=nx>n</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>j</span> <span class=o>=</span> <span class=nx>i</span> <span class=o>+</span> <span class=nx>j</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>i</span> <span class=o>=</span> <span class=nx>j</span> <span class=o>-</span> <span class=nx>i</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>j</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span></code></pre></td></tr></table></div></div><h3 id=青蛙跳台阶>青蛙跳台阶</h3><p>青蛙一次能跳一阶，也可以跳两阶，求对于N阶的台阶，有多少种跳法</p><p>对于n阶的台阶，如果青蛙第一次跳一阶，则有<code>f(n-1)</code>种跳法；如果青蛙第一次跳两阶，则有<code>f(n-2)</code>种跳法。所以一共有 <code>f(n-1) + f(n-2)</code> 种跳法。得出此为一个斐波那契函数</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
@@ -210,16 +210,16 @@
 </span><span class=lnt>15
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>f</span><span class=p>(</span><span class=nx>n</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=p>(</span><span class=nx>n</span> <span class=o>&lt;=</span> <span class=mi>2</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=nx>n</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=kd>let</span> <span class=nx>j</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=k>while</span><span class=p>(</span><span class=nx>n</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=nx>j</span> <span class=o>=</span> <span class=nx>j</span> <span class=o>+</span> <span class=nx>i</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>		<span class=nx>i</span> <span class=o>=</span> <span class=nx>j</span> <span class=o>-</span> <span class=nx>i</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>j</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=nx>n</span> <span class=o>&lt;=</span> <span class=mi>2</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>n</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>j</span> <span class=o>=</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>while</span><span class=p>(</span><span class=nx>n</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>j</span> <span class=o>=</span> <span class=nx>j</span> <span class=o>+</span> <span class=nx>i</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>i</span> <span class=o>=</span> <span class=nx>j</span> <span class=o>-</span> <span class=nx>i</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>j</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=nx>f</span><span class=p>(</span><span class=mi>100</span><span class=p>)</span>
@@ -238,16 +238,16 @@
 </span><span class=lnt>13
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>debounce</span><span class=p>(</span><span class=nx>fn</span><span class=p>,</span> <span class=nx>delay</span> <span class=o>=</span> <span class=mi>500</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=kd>let</span> <span class=nx>timer</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=k>if</span> <span class=p>(</span><span class=nx>timer</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>			<span class=nx>clearTimeout</span><span class=p>(</span><span class=nx>timer</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>		<span class=p>}</span>
-</span></span><span class=line><span class=cl>		<span class=nx>timer</span> <span class=o>=</span> <span class=nx>setTimeout</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>			<span class=nx>fn</span><span class=p>.</span><span class=nx>apply</span><span class=p>(</span><span class=k>this</span><span class=p>,</span> <span class=nx>arguments</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>			<span class=nx>timer</span> <span class=o>=</span> <span class=kc>null</span>
-</span></span><span class=line><span class=cl>		<span class=p>},</span> <span class=nx>delay</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>timer</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>timer</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>clearTimeout</span><span class=p>(</span><span class=nx>timer</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>timer</span> <span class=o>=</span> <span class=nx>setTimeout</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>fn</span><span class=p>.</span><span class=nx>apply</span><span class=p>(</span><span class=k>this</span><span class=p>,</span> <span class=nx>arguments</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=nx>timer</span> <span class=o>=</span> <span class=kc>null</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=nx>delay</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span> 
 </span></span></code></pre></td></tr></table></div></div><h3 id=节流>节流</h3><p>单位时间内只执行一次</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
@@ -264,16 +264,16 @@
 </span><span class=lnt>13
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>throttle</span><span class=p>(</span><span class=nx>fn</span><span class=p>,</span> <span class=nx>delay</span> <span class=o>=</span> <span class=mi>500</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=kd>let</span> <span class=nx>timer</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=k>if</span> <span class=p>(</span><span class=nx>timer</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>			<span class=k>return</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>		<span class=p>}</span>
-</span></span><span class=line><span class=cl>		<span class=nx>timer</span> <span class=o>=</span> <span class=nx>setTimeout</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>			<span class=nx>fn</span><span class=p>.</span><span class=nx>apply</span><span class=p>(</span><span class=k>this</span><span class=p>,</span> <span class=nx>arguments</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>			<span class=nx>timer</span> <span class=o>=</span> <span class=kc>null</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>		<span class=p>},</span> <span class=nx>delay</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>timer</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=kd>function</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>timer</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>return</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>timer</span> <span class=o>=</span> <span class=nx>setTimeout</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>fn</span><span class=p>.</span><span class=nx>apply</span><span class=p>(</span><span class=k>this</span><span class=p>,</span> <span class=nx>arguments</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>      <span class=nx>timer</span> <span class=o>=</span> <span class=kc>null</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=nx>delay</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span></code></pre></td></tr></table></div></div><h3 id=写一个处理加法可能产生精度的函数>写一个处理加法可能产生精度的函数</h3><p>比如 0.1 + 0.2 = 0.3</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
@@ -291,15 +291,15 @@
 </span><span class=lnt>14
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>checkPoint</span><span class=p>(</span><span class=nx>m</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=kr>const</span> <span class=nx>a</span> <span class=o>=</span> <span class=nx>m</span><span class=p>.</span><span class=nx>toString</span><span class=p>();</span>
-</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=p>(</span><span class=nx>a</span><span class=p>.</span><span class=nx>length</span> <span class=o>-</span> <span class=p>(</span><span class=nx>a</span><span class=p>.</span><span class=nx>indexOf</span><span class=p>()</span> <span class=o>+</span> <span class=mi>1</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>a</span> <span class=o>=</span> <span class=nx>m</span><span class=p>.</span><span class=nx>toString</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span><span class=nx>a</span><span class=p>.</span><span class=nx>length</span> <span class=o>-</span> <span class=p>(</span><span class=nx>a</span><span class=p>.</span><span class=nx>indexOf</span><span class=p>()</span> <span class=o>+</span> <span class=mi>1</span><span class=p>));</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>add</span><span class=p>(</span><span class=nx>m</span><span class=p>,</span> <span class=nx>n</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=kr>const</span> <span class=nx>mIdx</span> <span class=o>=</span> <span class=nx>checkPoint</span><span class=p>(</span><span class=nx>m</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>	<span class=kr>const</span> <span class=nx>nIdx</span> <span class=o>=</span> <span class=nx>checkPoint</span><span class=p>(</span><span class=nx>n</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>	<span class=kr>const</span> <span class=nx>p</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>pow</span><span class=p>(</span><span class=mi>10</span><span class=p>,</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>max</span><span class=p>(</span><span class=nx>mIdx</span><span class=p>,</span> <span class=nx>nIdx</span><span class=p>));</span>
-</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=p>(</span><span class=nx>m</span> <span class=o>*</span> <span class=nx>p</span> <span class=o>+</span> <span class=nx>n</span> <span class=o>*</span> <span class=nx>p</span><span class=p>)</span> <span class=o>/</span> <span class=nx>p</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>mIdx</span> <span class=o>=</span> <span class=nx>checkPoint</span><span class=p>(</span><span class=nx>m</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>nIdx</span> <span class=o>=</span> <span class=nx>checkPoint</span><span class=p>(</span><span class=nx>n</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>p</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>pow</span><span class=p>(</span><span class=mi>10</span><span class=p>,</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>max</span><span class=p>(</span><span class=nx>mIdx</span><span class=p>,</span> <span class=nx>nIdx</span><span class=p>));</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=p>(</span><span class=nx>m</span> <span class=o>*</span> <span class=nx>p</span> <span class=o>+</span> <span class=nx>n</span> <span class=o>*</span> <span class=nx>p</span><span class=p>)</span> <span class=o>/</span> <span class=nx>p</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=nx>add</span><span class=p>(</span><span class=mf>0.1</span><span class=p>,</span> <span class=mf>0.123</span><span class=p>)</span>
@@ -322,18 +322,18 @@
 </span><span class=lnt>17
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>add</span><span class=p>(</span><span class=nx>num1</span><span class=p>,</span> <span class=nx>num2</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=kd>let</span> <span class=nx>m</span> <span class=o>=</span> <span class=nx>num1</span><span class=p>.</span><span class=nx>length</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=kd>let</span> <span class=nx>n</span> <span class=o>=</span> <span class=nx>num2</span><span class=p>.</span><span class=nx>length</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=kr>const</span> <span class=nx>arr</span> <span class=o>=</span> <span class=p>[];</span>
-</span></span><span class=line><span class=cl>	<span class=kd>let</span> <span class=nx>add</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=k>for</span><span class=p>(;</span> <span class=nx>m</span> <span class=o>&gt;=</span> <span class=mi>0</span> <span class=o>||</span> <span class=nx>n</span> <span class=o>&gt;=</span> <span class=mi>0</span> <span class=o>||</span> <span class=nx>add</span> <span class=o>!==</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>m</span><span class=o>--</span><span class=p>,</span> <span class=nx>n</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=kr>const</span> <span class=nx>x</span> <span class=o>=</span> <span class=nx>m</span> <span class=o>&gt;=</span> <span class=mi>0</span> <span class=o>?</span> <span class=o>+</span><span class=nx>num1</span><span class=p>[</span><span class=nx>m</span><span class=p>]</span> <span class=o>:</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>		<span class=kr>const</span> <span class=nx>y</span> <span class=o>=</span> <span class=nx>n</span> <span class=o>&gt;=</span> <span class=mi>0</span> <span class=o>?</span> <span class=o>+</span><span class=nx>num2</span><span class=p>[</span><span class=nx>n</span><span class=p>]</span> <span class=o>:</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>		<span class=kr>const</span> <span class=nx>sum</span> <span class=o>=</span> <span class=nx>x</span> <span class=o>+</span> <span class=nx>y</span> <span class=o>+</span> <span class=nx>add</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>		<span class=nx>arr</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>sum</span> <span class=o>%</span> <span class=mi>10</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>		<span class=nx>add</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nx>sum</span> <span class=o>/</span> <span class=mi>10</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>reverse</span><span class=p>().</span><span class=nx>join</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>m</span> <span class=o>=</span> <span class=nx>num1</span><span class=p>.</span><span class=nx>length</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>n</span> <span class=o>=</span> <span class=nx>num2</span><span class=p>.</span><span class=nx>length</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>arr</span> <span class=o>=</span> <span class=p>[];</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>add</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span><span class=p>(;</span> <span class=nx>m</span> <span class=o>&gt;=</span> <span class=mi>0</span> <span class=o>||</span> <span class=nx>n</span> <span class=o>&gt;=</span> <span class=mi>0</span> <span class=o>||</span> <span class=nx>add</span> <span class=o>!==</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>m</span><span class=o>--</span><span class=p>,</span> <span class=nx>n</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>x</span> <span class=o>=</span> <span class=nx>m</span> <span class=o>&gt;=</span> <span class=mi>0</span> <span class=o>?</span> <span class=o>+</span><span class=nx>num1</span><span class=p>[</span><span class=nx>m</span><span class=p>]</span> <span class=o>:</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>y</span> <span class=o>=</span> <span class=nx>n</span> <span class=o>&gt;=</span> <span class=mi>0</span> <span class=o>?</span> <span class=o>+</span><span class=nx>num2</span><span class=p>[</span><span class=nx>n</span><span class=p>]</span> <span class=o>:</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>sum</span> <span class=o>=</span> <span class=nx>x</span> <span class=o>+</span> <span class=nx>y</span> <span class=o>+</span> <span class=nx>add</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=nx>arr</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>sum</span> <span class=o>%</span> <span class=mi>10</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nx>add</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nx>sum</span> <span class=o>/</span> <span class=mi>10</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>reverse</span><span class=p>().</span><span class=nx>join</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=nx>add</span><span class=p>(</span><span class=s1>&#39;1234567&#39;</span><span class=p>,</span> <span class=s1>&#39;87654321174&#39;</span><span class=p>)</span>
@@ -363,25 +363,25 @@
 </span><span class=lnt>24
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>multiply</span><span class=p>(</span><span class=nx>num1</span><span class=p>,</span> <span class=nx>num2</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=p>(</span><span class=nx>num1</span> <span class=o>===</span> <span class=s1>&#39;0&#39;</span> <span class=o>||</span> <span class=nx>num2</span> <span class=o>===</span> <span class=s1>&#39;0&#39;</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=k>return</span> <span class=s1>&#39;0&#39;</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=kr>const</span> <span class=nx>m</span> <span class=o>=</span> <span class=nx>num1</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=kr>const</span> <span class=nx>n</span> <span class=o>=</span> <span class=nx>num2</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=kr>const</span> <span class=nx>arr</span> <span class=o>=</span> <span class=nb>Array</span><span class=p>(</span><span class=nx>m</span> <span class=o>+</span> <span class=nx>n</span><span class=p>).</span><span class=nx>fill</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>	<span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=nx>m</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&gt;=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=kr>const</span> <span class=nx>x</span> <span class=o>=</span> <span class=o>+</span><span class=nx>num1</span><span class=p>[</span><span class=nx>i</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>		<span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>j</span> <span class=o>=</span> <span class=nx>n</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>j</span> <span class=o>&gt;=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>j</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>			<span class=kr>const</span> <span class=nx>y</span> <span class=o>=</span> <span class=o>+</span><span class=nx>num2</span><span class=p>[</span><span class=nx>j</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>			<span class=kr>const</span> <span class=nx>result</span> <span class=o>=</span> <span class=nx>x</span> <span class=o>*</span> <span class=nx>y</span> <span class=o>+</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>i</span> <span class=o>+</span> <span class=nx>j</span> <span class=o>+</span> <span class=mi>1</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>			<span class=nx>arr</span><span class=p>[</span><span class=nx>i</span> <span class=o>+</span> <span class=nx>j</span> <span class=o>+</span> <span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=nx>result</span> <span class=o>%</span> <span class=mi>10</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>			<span class=nx>arr</span><span class=p>[</span><span class=nx>i</span> <span class=o>+</span> <span class=nx>j</span><span class=p>]</span> <span class=o>+=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nx>result</span> <span class=o>/</span> <span class=mi>10</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>		<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=k>while</span> <span class=p>(</span><span class=nx>arr</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=nx>arr</span><span class=p>.</span><span class=nx>shift</span><span class=p>();</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>join</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=nx>num1</span> <span class=o>===</span> <span class=s1>&#39;0&#39;</span> <span class=o>||</span> <span class=nx>num2</span> <span class=o>===</span> <span class=s1>&#39;0&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=s1>&#39;0&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>m</span> <span class=o>=</span> <span class=nx>num1</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>n</span> <span class=o>=</span> <span class=nx>num2</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>arr</span> <span class=o>=</span> <span class=nb>Array</span><span class=p>(</span><span class=nx>m</span> <span class=o>+</span> <span class=nx>n</span><span class=p>).</span><span class=nx>fill</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=nx>m</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&gt;=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>x</span> <span class=o>=</span> <span class=o>+</span><span class=nx>num1</span><span class=p>[</span><span class=nx>i</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>j</span> <span class=o>=</span> <span class=nx>n</span> <span class=o>-</span> <span class=mi>1</span><span class=p>;</span> <span class=nx>j</span> <span class=o>&gt;=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>j</span><span class=o>--</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=kr>const</span> <span class=nx>y</span> <span class=o>=</span> <span class=o>+</span><span class=nx>num2</span><span class=p>[</span><span class=nx>j</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>      <span class=kr>const</span> <span class=nx>result</span> <span class=o>=</span> <span class=nx>x</span> <span class=o>*</span> <span class=nx>y</span> <span class=o>+</span> <span class=nx>arr</span><span class=p>[</span><span class=nx>i</span> <span class=o>+</span> <span class=nx>j</span> <span class=o>+</span> <span class=mi>1</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>      <span class=nx>arr</span><span class=p>[</span><span class=nx>i</span> <span class=o>+</span> <span class=nx>j</span> <span class=o>+</span> <span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=nx>result</span> <span class=o>%</span> <span class=mi>10</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=nx>arr</span><span class=p>[</span><span class=nx>i</span> <span class=o>+</span> <span class=nx>j</span><span class=p>]</span> <span class=o>+=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>floor</span><span class=p>(</span><span class=nx>result</span> <span class=o>/</span> <span class=mi>10</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>while</span> <span class=p>(</span><span class=nx>arr</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>arr</span><span class=p>.</span><span class=nx>shift</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>join</span><span class=p>(</span><span class=s1>&#39;&#39;</span><span class=p>)</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=nx>multiply</span><span class=p>(</span><span class=s1>&#39;1234567&#39;</span><span class=p>,</span> <span class=s1>&#39;87654321174&#39;</span><span class=p>)</span>
@@ -404,20 +404,20 @@
 </span><span class=lnt>17
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kd>function</span> <span class=nx>lengthOfLongestSubstring</span><span class=p>(</span><span class=nx>str</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>	<span class=kr>const</span> <span class=nx>n</span> <span class=o>=</span> <span class=nx>str</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=kr>const</span> <span class=nx>last</span> <span class=o>=</span> <span class=p>{};</span>
-</span></span><span class=line><span class=cl>	<span class=c1>// const last = Array(128).fill(-1);
-</span></span></span><span class=line><span class=cl><span class=c1></span>	<span class=kd>let</span> <span class=nx>start</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=kd>let</span> <span class=nx>len</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>n</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>		<span class=kr>const</span> <span class=nx>key</span> <span class=o>=</span> <span class=nx>str</span><span class=p>[</span><span class=nx>i</span><span class=p>];</span>
-</span></span><span class=line><span class=cl>        <span class=c1>// const key = s.charCodeAt(i);
-</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=nx>start</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>max</span><span class=p>(</span><span class=nx>start</span><span class=p>,</span> <span class=p>(</span><span class=nx>last</span><span class=p>[</span><span class=nx>key</span><span class=p>]</span> <span class=o>??</span> <span class=o>-</span><span class=mi>1</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>		<span class=c1>// start = Math.max(start, last[key] + 1);
-</span></span></span><span class=line><span class=cl><span class=c1></span>		<span class=nx>len</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>max</span><span class=p>(</span><span class=nx>len</span><span class=p>,</span> <span class=nx>i</span> <span class=o>-</span> <span class=nx>start</span> <span class=o>+</span> <span class=mi>1</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>		<span class=nx>last</span><span class=p>[</span><span class=nx>key</span><span class=p>]</span> <span class=o>=</span> <span class=nx>i</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>	<span class=p>}</span>
-</span></span><span class=line><span class=cl>	<span class=k>return</span> <span class=nx>len</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>n</span> <span class=o>=</span> <span class=nx>str</span><span class=p>.</span><span class=nx>length</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=kr>const</span> <span class=nx>last</span> <span class=o>=</span> <span class=p>{};</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// const last = Array(128).fill(-1);
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>let</span> <span class=nx>start</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>len</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>n</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>key</span> <span class=o>=</span> <span class=nx>str</span><span class=p>[</span><span class=nx>i</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// const key = s.charCodeAt(i);
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>start</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>max</span><span class=p>(</span><span class=nx>start</span><span class=p>,</span> <span class=p>(</span><span class=nx>last</span><span class=p>[</span><span class=nx>key</span><span class=p>]</span> <span class=o>??</span> <span class=o>-</span><span class=mi>1</span><span class=p>)</span> <span class=o>+</span> <span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// start = Math.max(start, last[key] + 1);
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>len</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>max</span><span class=p>(</span><span class=nx>len</span><span class=p>,</span> <span class=nx>i</span> <span class=o>-</span> <span class=nx>start</span> <span class=o>+</span> <span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nx>last</span><span class=p>[</span><span class=nx>key</span><span class=p>]</span> <span class=o>=</span> <span class=nx>i</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>len</span><span class=p>;</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span></code></pre></td></tr></table></div></div><h3 id=手写一个promise-all的实现>手写一个Promise all的实现</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
@@ -454,36 +454,36 @@
 </span><span class=lnt>33
 </span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=nb>Promise</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>all</span> <span class=o>=</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>arr</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>reduce</span><span class=p>((</span><span class=nx>result</span><span class=p>,</span> <span class=nx>item</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    	<span class=k>return</span> <span class=nx>item</span><span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>value</span> <span class=p>=&gt;</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>			<span class=k>return</span> <span class=nx>result</span><span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>res</span> <span class=p>=&gt;</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>				<span class=nx>res</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>value</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>				<span class=k>return</span> <span class=nx>res</span>
-</span></span><span class=line><span class=cl>			<span class=p>})</span>
-</span></span><span class=line><span class=cl>		<span class=p>})</span>
-</span></span><span class=line><span class=cl>    <span class=p>},</span> <span class=nb>Promise</span><span class=p>.</span><span class=nx>resolve</span><span class=p>([]))</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>reduce</span><span class=p>((</span><span class=nx>result</span><span class=p>,</span> <span class=nx>item</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>item</span><span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>value</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>return</span> <span class=nx>result</span><span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>res</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>res</span><span class=p>.</span><span class=nx>push</span><span class=p>(</span><span class=nx>value</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=k>return</span> <span class=nx>res</span>
+</span></span><span class=line><span class=cl>      <span class=p>})</span>
+</span></span><span class=line><span class=cl>    <span class=p>})</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span> <span class=nb>Promise</span><span class=p>.</span><span class=nx>resolve</span><span class=p>([]))</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=nb>Promise</span><span class=p>.</span><span class=nx>prototype</span><span class=p>.</span><span class=nx>all</span> <span class=o>=</span> <span class=kd>function</span> <span class=p>(</span><span class=nx>arr</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=k>new</span> <span class=nb>Promise</span><span class=p>((</span><span class=nx>resolve</span><span class=p>,</span> <span class=nx>reject</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    	<span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>arr</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    		<span class=nx>reject</span><span class=p>();</span>
-</span></span><span class=line><span class=cl>    	<span class=p>}</span>
-</span></span><span class=line><span class=cl>    	<span class=k>if</span> <span class=p>(</span><span class=nx>arr</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>    		<span class=nx>resolve</span><span class=p>([])</span>
-</span></span><span class=line><span class=cl>    	<span class=p>}</span>
-</span></span><span class=line><span class=cl>        <span class=kr>const</span> <span class=nx>result</span> <span class=o>=</span> <span class=p>[];</span>
-</span></span><span class=line><span class=cl>        <span class=nx>arr</span><span class=p>.</span><span class=nx>forEach</span><span class=p>((</span><span class=nx>item</span><span class=p>,</span> <span class=nx>idx</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>            <span class=nx>item</span><span class=p>.</span><span class=nx>then</span><span class=p>((</span><span class=nx>res</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>                <span class=nx>result</span><span class=p>[</span><span class=nx>idx</span><span class=p>]</span> <span class=o>=</span> <span class=nx>res</span><span class=p>;</span>
-</span></span><span class=line><span class=cl>                <span class=k>if</span> <span class=p>(</span><span class=nx>result</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span><span class=p>)</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>                    <span class=nx>resolve</span><span class=p>(</span><span class=nx>result</span><span class=p>);</span>
-</span></span><span class=line><span class=cl>                <span class=p>}</span>
-</span></span><span class=line><span class=cl>            <span class=p>}).</span><span class=k>catch</span><span class=p>(</span><span class=nx>err</span> <span class=p>=&gt;</span> <span class=p>{</span>
-</span></span><span class=line><span class=cl>                <span class=nx>reject</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
-</span></span><span class=line><span class=cl>            <span class=p>})</span>
-</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=k>new</span> <span class=nb>Promise</span><span class=p>((</span><span class=nx>resolve</span><span class=p>,</span> <span class=nx>reject</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=o>!</span><span class=nx>arr</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>reject</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>arr</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>resolve</span><span class=p>([])</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>result</span> <span class=o>=</span> <span class=p>[];</span>
+</span></span><span class=line><span class=cl>    <span class=nx>arr</span><span class=p>.</span><span class=nx>forEach</span><span class=p>((</span><span class=nx>item</span><span class=p>,</span> <span class=nx>idx</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>item</span><span class=p>.</span><span class=nx>then</span><span class=p>((</span><span class=nx>res</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>result</span><span class=p>[</span><span class=nx>idx</span><span class=p>]</span> <span class=o>=</span> <span class=nx>res</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=k>if</span> <span class=p>(</span><span class=nx>result</span><span class=p>.</span><span class=nx>length</span> <span class=o>===</span> <span class=nx>arr</span><span class=p>.</span><span class=nx>length</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nx>resolve</span><span class=p>(</span><span class=nx>result</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}).</span><span class=k>catch</span><span class=p>(</span><span class=nx>err</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>reject</span><span class=p>(</span><span class=nx>err</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>      <span class=p>})</span>
 </span></span><span class=line><span class=cl>    <span class=p>})</span>
+</span></span><span class=line><span class=cl>  <span class=p>})</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span></code></pre></td></tr></table></div></div></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
 <span class=item-content>Chris-dc</span></p><p class=copyright-item><span class=item-title>上次更新</span>
