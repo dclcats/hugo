@@ -211,8 +211,8 @@ summaryLength = 30
 
   [params.reward]                                         # 文章打赏
     enable = true
-    wechat = "/pay/wechat-reward-image.jpeg"           # 微信二维码
-    alipay = "/pay/alipay-reward-image.jpeg"           # 支付宝二维码
+    wechat = "/hugo/pay/wechat-reward-image.jpeg"           # 微信二维码
+    alipay = "/hugo/pay/alipay-reward-image.jpeg"           # 支付宝二维码
 
   [params.social]                                         # 社交链接
     a-email = "chichucan@126.com"
