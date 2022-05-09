@@ -1,257 +1,39 @@
-<!doctype html><html lang=zh-cn>
-<head>
-<meta charset=utf-8>
-<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
-<title>Mac制作Ubuntu启动盘 - Chris</title>
-<meta name=renderer content="webkit">
-<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
-<meta http-equiv=cache-control content="no-transform">
-<meta http-equiv=cache-control content="no-siteapp">
-<meta name=theme-color content="#f8f5ec">
-<meta name=msapplication-navbutton-color content="#f8f5ec">
-<meta name=apple-mobile-web-app-capable content="yes">
-<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
-<meta name=author content="Chris-dc"><meta name=description content="通过Mac制作Ubuntu启动盘"><meta name=keywords content="Chris,blog,前端,javascript,js,vue,react">
-<meta name=generator content="Hugo 0.92.2 with theme even">
-<link rel=canonical href=https://dclcats.github.io/hugo/post/system/mac-ubuntu/>
-<link rel=apple-touch-icon sizes=180x180 href=/hugo/apple-touch-icon.png>
-<link rel=icon type=image/png sizes=32x32 href=/hugo/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/hugo/favicon-16x16.png>
-<link rel=manifest href=/hugo/manifest.json>
-<link rel=mask-icon href=/hugo/safari-pinned-tab.svg color=#5bbad5>
-<script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
-<link href=/hugo/sass/main.min.c1253e8730933daea1b2f02614038391ae4e599a1b8fe71adb84b531ed41db25.css rel=stylesheet>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
-<meta property="og:title" content="Mac制作Ubuntu启动盘">
-<meta property="og:description" content="通过Mac制作Ubuntu启动盘">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://dclcats.github.io/hugo/post/system/mac-ubuntu/"><meta property="article:section" content="post">
-<meta property="article:published_time" content="2021-03-23T14:13:28+08:00">
-<meta property="article:modified_time" content="2021-03-23T14:13:28+08:00">
-<meta itemprop=name content="Mac制作Ubuntu启动盘">
-<meta itemprop=description content="通过Mac制作Ubuntu启动盘"><meta itemprop=datePublished content="2021-03-23T14:13:28+08:00">
-<meta itemprop=dateModified content="2021-03-23T14:13:28+08:00">
-<meta itemprop=wordCount content="567">
-<meta itemprop=keywords content><meta name=twitter:card content="summary">
-<meta name=twitter:title content="Mac制作Ubuntu启动盘">
-<meta name=twitter:description content="通过Mac制作Ubuntu启动盘"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
-<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
-</head>
-<body>
-<div id=mobile-navbar class=mobile-navbar>
-<div class=mobile-header-logo>
-<a href=/hugo/ class=logo>Chris</a>
-</div>
-<div class=mobile-navbar-icon>
+<!doctype html><html lang=zh-cn><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>Mac制作Ubuntu启动盘 - Chris</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Chris-dc"><meta name=description content="通过Mac制作Ubuntu启动盘"><meta name=keywords content="Chris,blog,前端,javascript,js,vue,react"><meta name=generator content="Hugo 0.98.0 with theme even"><link rel=canonical href=https://dclcats.github.io/hugo/post/system/mac-ubuntu/><link rel=apple-touch-icon sizes=180x180 href=/hugo/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/hugo/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/hugo/favicon-16x16.png><link rel=manifest href=/hugo/manifest.json><link rel=mask-icon href=/hugo/safari-pinned-tab.svg color=#5bbad5><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script>
+<link href=/hugo/sass/main.min.c1253e8730933daea1b2f02614038391ae4e599a1b8fe71adb84b531ed41db25.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="Mac制作Ubuntu启动盘"><meta property="og:description" content="通过Mac制作Ubuntu启动盘"><meta property="og:type" content="article"><meta property="og:url" content="https://dclcats.github.io/hugo/post/system/mac-ubuntu/"><meta property="article:section" content="post"><meta property="article:published_time" content="2021-03-23T14:13:28+08:00"><meta property="article:modified_time" content="2021-03-23T14:13:28+08:00"><meta itemprop=name content="Mac制作Ubuntu启动盘"><meta itemprop=description content="通过Mac制作Ubuntu启动盘"><meta itemprop=datePublished content="2021-03-23T14:13:28+08:00"><meta itemprop=dateModified content="2021-03-23T14:13:28+08:00"><meta itemprop=wordCount content="567"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Mac制作Ubuntu启动盘"><meta name=twitter:description content="通过Mac制作Ubuntu启动盘"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/hugo/ class=logo>Chris</a></div><div class=mobile-navbar-icon><span></span>
 <span></span>
-<span></span>
-<span></span>
-</div>
-</div>
-<nav id=mobile-menu class="mobile-menu slideout-menu">
-<ul class=mobile-menu-list>
-<a href=/hugo/>
-<li class=mobile-menu-item>首页</li>
-</a><a href=/hugo/post/>
-<li class=mobile-menu-item>归档</li>
-</a><a href=/hugo/categories/>
-<li class=mobile-menu-item>类别</li>
-</a><a href=/hugo/tags/>
-<li class=mobile-menu-item>标签</li>
-</a><a href=/hugo/about/>
-<li class=mobile-menu-item>关于</li>
-</a>
-</ul>
-</nav>
-<div class=container id=mobile-panel>
-<header id=header class=header>
-<div class=logo-wrapper>
-<a href=/hugo/ class=logo>Chris</a>
-</div>
-<nav class=site-navbar>
-<ul id=menu class=menu>
-<li class=menu-item>
-<a class=menu-item-link href=/hugo/>首页</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/hugo/post/>归档</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/hugo/categories/>类别</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/hugo/tags/>标签</a>
-</li><li class=menu-item>
-<a class=menu-item-link href=/hugo/about/>关于</a>
-</li>
-</ul>
-</nav>
-</header>
-<main id=main class=main>
-<div class=content-wrapper>
-<div id=content class=content>
-<article class=post>
-<header class=post-header>
-<h1 class=post-title>Mac制作Ubuntu启动盘</h1>
-<div class=post-meta>
-<span class=post-time> 2021-03-23 </span>
-<span class=more-meta> 约 567 字 </span>
-<span class=more-meta> 预计阅读 2 分钟 </span>
-<span id=busuanzi_container_page_pv class=more-meta> <span id=busuanzi_value_page_pv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 次阅读 </span>
-</div>
-</header>
-<div class=post-toc id=post-toc>
-<h2 class=post-toc-title>文章目录</h2>
-<div class="post-toc-content always-active">
-<nav id=TableOfContents>
-<ul>
-<li>
-<ul>
-<li><a href=#下载ubuntu镜像文件>下载Ubuntu镜像文件</a></li>
-<li><a href=#准备一个u盘>准备一个U盘</a>
-<ul>
-<li><a href=#mac自带磁盘工具>Mac自带磁盘工具</a></li>
-<li><a href=#命令行>命令行</a></li>
-</ul>
-</li>
-<li><a href=#制作启动盘>制作启动盘</a></li>
-</ul>
-</li>
-</ul>
-</nav>
-</div>
-</div>
-<div class=post-content>
-<h2 id=下载ubuntu镜像文件>下载Ubuntu镜像文件</h2>
-<p>Ubuntu官网下载所需要的的镜像文件（iso）</p>
-<h2 id=准备一个u盘>准备一个U盘</h2>
-<p>准备一个U盘，容量在4G以上（可以作为专门的启动盘），如果U盘曾用过，最好格式化下U盘</p>
-<h3 id=mac自带磁盘工具>Mac自带磁盘工具</h3>
-<p>打开磁盘工具，选择U盘，点击抹去（erase），选择对应的信息（exFAT or others），会清除U盘的所有数据，所以记得备份数据</p>
-<h3 id=命令行>命令行</h3>
-<p>通过命令确定U盘位置信息(通常未 /dev/disk2)</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>$ diskutil list
-</code></pre></td></tr></table>
-</div>
-</div><p>卸载U盘</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>$ sudo diskutil umountDisk /dev/disk3
-</code></pre></td></tr></table>
-</div>
-</div><p>格式化</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>sudo diskutil eraseDisk ExFAT ud /dev/disk3 
-</code></pre></td></tr></table>
-</div>
-</div><p>完成</p>
-<p><em>以上均为diskutil命令实现，具体命令语法，参数含义，可百度详细了解，小白建议使用Mac自带工具实现</em></p>
-<h2 id=制作启动盘>制作启动盘</h2>
-<p>镜像（iso）文件下载好之后，通过 <code>hdiutil </code>命令制作dmg文件，注意镜像文件改为自己的文件（地址）</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>$ hdiutil convert -format UDRW ubuntu-20.04-desktop-amd64.iso -o ubuntu-20.04-desktop-amd64
-</code></pre></td></tr></table>
-</div>
-</div><p>此过程很快结束，下一步开始制作启动盘</p>
-<p><strong>在制作启动盘之前记得线卸载U盘，注意是卸载不是推出，上一步命令行中有卸载操作，自带工具中，有对应的卸载图标可以实现</strong></p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt>1
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-shell data-lang=shell>$ sudo dd <span class=k>if</span><span class=o>=</span>ubuntu-20.04-desktop-amd64.img <span class=nv>of</span><span class=o>=</span>/dev/rdisk2 <span class=nv>bs</span><span class=o>=</span>1m
-</code></pre></td></tr></table>
-</div>
-</div><p><strong>注意<code>of=</code>后边的地址是U盘的挂载地址，在<code>diskutil list</code>命令中可看到；另外<code>disk2</code> -> <code>rdisk2</code>，对于两者区别可以百度获取</strong></p>
-<p><strong>以上命令执行过程中不会有日志，在结束之后会返回一些简单信息，时间会比较久一点，可以做别的事情，在最后会弹窗提示U盘不兼容信息可忽略（如果确定<code>dd</code>已执行完成可直接点推出），待<code>dd</code>命令执行完成之后，推出U盘即可</strong></p>
-</div>
-<div class=post-copyright>
-<p class=copyright-item>
-<span class=item-title>文章作者</span>
-<span class=item-content>Chris-dc</span>
-</p>
-<p class=copyright-item>
-<span class=item-title>上次更新</span>
-<span class=item-content>
-2021-03-23
-</span>
-</p>
-</div>
-<div class=post-reward>
-<input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>赞赏支持</label>
-<div class=qr-code>
-<label class=qr-code-image for=reward>
-<img class=image src=/pay/wechat-reward-image.jpeg>
-<span>微信打赏</span>
-</label>
-<label class=qr-code-image for=reward>
-<img class=image src=/pay/alipay-reward-image.jpeg>
-<span>支付宝打赏</span>
-</label>
-</div>
-</div><footer class=post-footer>
-<nav class=post-nav>
-<a class=prev href=/hugo/post/react/reconciliation/>
-<i class="iconfont icon-left"></i>
+<span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/hugo/><li class=mobile-menu-item>首页</li></a><a href=/hugo/post/><li class=mobile-menu-item>归档</li></a><a href=/hugo/categories/><li class=mobile-menu-item>类别</li></a><a href=/hugo/tags/><li class=mobile-menu-item>标签</li></a><a href=/hugo/about/><li class=mobile-menu-item>关于</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/hugo/ class=logo>Chris</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/hugo/>首页</a></li><li class=menu-item><a class=menu-item-link href=/hugo/post/>归档</a></li><li class=menu-item><a class=menu-item-link href=/hugo/categories/>类别</a></li><li class=menu-item><a class=menu-item-link href=/hugo/tags/>标签</a></li><li class=menu-item><a class=menu-item-link href=/hugo/about/>关于</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>Mac制作Ubuntu启动盘</h1><div class=post-meta><span class=post-time>2021-03-23</span>
+<span class=more-meta>约 567 字</span>
+<span class=more-meta>预计阅读 2 分钟</span>
+<span id=busuanzi_container_page_pv class=more-meta><span id=busuanzi_value_page_pv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 次阅读</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>文章目录</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#下载ubuntu镜像文件>下载Ubuntu镜像文件</a></li><li><a href=#准备一个u盘>准备一个U盘</a><ul><li><a href=#mac自带磁盘工具>Mac自带磁盘工具</a></li><li><a href=#命令行>命令行</a></li></ul></li><li><a href=#制作启动盘>制作启动盘</a></li></ul></li></ul></nav></div></div><div class=post-content><h2 id=下载ubuntu镜像文件>下载Ubuntu镜像文件</h2><p>Ubuntu官网下载所需要的的镜像文件（iso）</p><h2 id=准备一个u盘>准备一个U盘</h2><p>准备一个U盘，容量在4G以上（可以作为专门的启动盘），如果U盘曾用过，最好格式化下U盘</p><h3 id=mac自带磁盘工具>Mac自带磁盘工具</h3><p>打开磁盘工具，选择U盘，点击抹去（erase），选择对应的信息（exFAT or others），会清除U盘的所有数据，所以记得备份数据</p><h3 id=命令行>命令行</h3><p>通过命令确定U盘位置信息(通常未 /dev/disk2)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>$ diskutil list
+</span></span></code></pre></td></tr></table></div></div><p>卸载U盘</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>$ sudo diskutil umountDisk /dev/disk3
+</span></span></code></pre></td></tr></table></div></div><p>格式化</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>sudo diskutil eraseDisk ExFAT ud /dev/disk3 
+</span></span></code></pre></td></tr></table></div></div><p>完成</p><p><em>以上均为diskutil命令实现，具体命令语法，参数含义，可百度详细了解，小白建议使用Mac自带工具实现</em></p><h2 id=制作启动盘>制作启动盘</h2><p>镜像（iso）文件下载好之后，通过 <code>hdiutil </code>命令制作dmg文件，注意镜像文件改为自己的文件（地址）</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>$ hdiutil convert -format UDRW ubuntu-20.04-desktop-amd64.iso -o ubuntu-20.04-desktop-amd64
+</span></span></code></pre></td></tr></table></div></div><p>此过程很快结束，下一步开始制作启动盘</p><p><strong>在制作启动盘之前记得线卸载U盘，注意是卸载不是推出，上一步命令行中有卸载操作，自带工具中，有对应的卸载图标可以实现</strong></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>$ sudo dd <span class=k>if</span><span class=o>=</span>ubuntu-20.04-desktop-amd64.img <span class=nv>of</span><span class=o>=</span>/dev/rdisk2 <span class=nv>bs</span><span class=o>=</span>1m
+</span></span></code></pre></td></tr></table></div></div><p><strong>注意<code>of=</code>后边的地址是U盘的挂载地址，在<code>diskutil list</code>命令中可看到；另外<code>disk2</code> -> <code>rdisk2</code>，对于两者区别可以百度获取</strong></p><p><strong>以上命令执行过程中不会有日志，在结束之后会返回一些简单信息，时间会比较久一点，可以做别的事情，在最后会弹窗提示U盘不兼容信息可忽略（如果确定<code>dd</code>已执行完成可直接点推出），待<code>dd</code>命令执行完成之后，推出U盘即可</strong></p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
+<span class=item-content>Chris-dc</span></p><p class=copyright-item><span class=item-title>上次更新</span>
+<span class=item-content>2021-03-23</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/pay/wechat-reward-image.jpeg>
+<span>微信打赏</span></label>
+<label class=qr-code-image for=reward><img class=image src=/pay/alipay-reward-image.jpeg>
+<span>支付宝打赏</span></label></div></div><footer class=post-footer><nav class=post-nav><a class=prev href=/hugo/post/react/reconciliation/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">每天一点react | 协调</span>
-<span class="prev-text nav-mobile">上一篇</span>
-</a>
-<a class=next href=/hugo/post/git/git-reset/>
-<span class="next-text nav-default">git reset --hard 操作后的数据恢复</span>
+<span class="prev-text nav-mobile">上一篇</span></a>
+<a class=next href=/hugo/post/git/git-reset/><span class="next-text nav-default">git reset --hard 操作后的数据恢复</span>
 <span class="next-text nav-mobile">下一篇</span>
-<i class="iconfont icon-right"></i>
-</a>
-</nav>
-</footer>
-</article>
-</div>
-<div id=gitalk-container></div>
-<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css crossorigin=anonymous>
-<script src=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js crossorigin=anonymous></script>
-<script type=text/javascript>var gitalk=new Gitalk({id:'2021-03-23 14:13:28 \u002b0800 \u002b0800',title:'Mac制作Ubuntu启动盘',clientID:'4873aca2f3f310d47ccf',clientSecret:'c2d8bf396230e0dcaf8c985d7adbcaa2416123aa',repo:'comments',owner:'dclcats',admin:['dclcats'],body:decodeURI(location.href)});gitalk.render('gitalk-container')</script>
-<noscript>Please enable JavaScript to view the <a href=https://github.com/gitalk/gitalk>comments powered by gitalk.</a></noscript>
-</div>
-</main>
-<footer id=footer class=footer>
-<div class=social-links>
-<a href=chichucan@126.com class="iconfont icon-email" title=email></a>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div><div id=gitalk-container></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js crossorigin=anonymous></script>
+<script type=text/javascript>var gitalk=new Gitalk({id:"2021-03-23 14:13:28 \u002b0800 \u002b0800",title:"Mac制作Ubuntu启动盘",clientID:"4873aca2f3f310d47ccf",clientSecret:"c2d8bf396230e0dcaf8c985d7adbcaa2416123aa",repo:"comments",owner:"dclcats",admin:["dclcats"],body:decodeURI(location.href)});gitalk.render("gitalk-container")</script><noscript>Please enable JavaScript to view the <a href=https://github.com/gitalk/gitalk>comments powered by gitalk.</a></noscript></div></main><footer id=footer class=footer><div class=social-links><a href=chichucan@126.com class="iconfont icon-email" title=email></a>
 <a href=https://github.com/dclcats/ class="iconfont icon-github" title=github></a>
-<a href=https://dclcats.github.io/hugo/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
-</div>
-<div class=copyright>
-<div class=busuanzi-footer>
-<span id=busuanzi_container_site_pv> 本站总访问量 <span id=busuanzi_value_site_pv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 次 </span>
+<a href=https://dclcats.github.io/hugo/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><div class=busuanzi-footer><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 次</span>
 <span class=division>|</span>
-<span id=busuanzi_container_site_uv> 本站总访客数 <span id=busuanzi_value_site_uv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 人 </span>
-</div>
-<span class=copyright-year>
-&copy;
+<span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><img src=/hugo/img/spinner.svg alt=spinner.svg></span> 人</span></div><span class=copyright-year>&copy;
 2021 -
-2022<span class=heart><i class="iconfont icon-heart"></i></span><span>Chris</span>
-</span>
-</div>
-</footer>
-<div class=back-to-top id=back-to-top>
-<i class="iconfont icon-up"></i>
-</div>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+2022<span class=heart><i class="iconfont icon-heart"></i></span><span>Chris</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
 <script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
-<script type=text/javascript src=/hugo/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
-</body>
-</html>
+<script type=text/javascript src=/hugo/js/main.min.64437849d125a2d603b3e71d6de5225d641a32d17168a58106e0b61852079683.js></script></body></html>
