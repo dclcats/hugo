@@ -23,9 +23,9 @@
 </span></span></code></pre></td></tr></table></div></div><p>ref 的值根据节点的类型而有所不同：</p><ul><li>当 <code>ref</code> 属性用于 HTML 元素时，构造函数中使用 <code>React.createRef()</code> 创建的 <code>ref</code> 接收底层 DOM 元素作为其 <code>current</code> 属性。</li><li>当 <code>ref</code> 属性用于自定义 class 组件时，<code>ref</code> 对象接收组件的挂载实例作为其 <code>current</code> 属性。</li><li><strong>你不能在函数组件上使用 <code>ref</code> 属性</strong>，因为他们没有实例。</li></ul><h3 id=回调-refs>回调 Refs</h3><p>React 也支持另一种设置 refs 的方式，称为“回调 refs”。它能助你更精细地控制何时 refs 被设置和解除。</p><p>不同于传递 <code>createRef()</code> 创建的 <code>ref</code> 属性，你会传递一个函数。这个函数中接受 React 组件实例或 HTML DOM 元素作为参数，以使它们能在其他地方被存储和访问。</p><p>React 将在组件挂载时，会调用 <code>ref</code> 回调函数并传入 DOM 元素，当卸载时调用它并传入 <code>null</code>。在 <code>componentDidMount</code> 或 <code>componentDidUpdate</code> 触发前，React 会保证 refs 一定是最新的。</p></div><div class=post-copyright><p class=copyright-item><span class=item-title>文章作者</span>
 <span class=item-content>Chris-dc</span></p><p class=copyright-item><span class=item-title>上次更新</span>
 <span class=item-content>2021-03-29</span></p></div><div class=post-reward><input type=checkbox name=reward id=reward hidden>
-<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/pay/wechat-reward-image.jpeg>
+<label class=reward-button for=reward>赞赏支持</label><div class=qr-code><label class=qr-code-image for=reward><img class=image src=/hugo/pay/wechat-reward-image.jpeg>
 <span>微信打赏</span></label>
-<label class=qr-code-image for=reward><img class=image src=/pay/alipay-reward-image.jpeg>
+<label class=qr-code-image for=reward><img class=image src=/hugo/pay/alipay-reward-image.jpeg>
 <span>支付宝打赏</span></label></div></div><footer class=post-footer><div class=post-tags><a href=/hugo/tags/react/>react</a></div><nav class=post-nav><a class=prev href=/hugo/post/react/6ce00058/><i class="iconfont icon-left"></i>
 <span class="prev-text nav-default">每天一点React | Render Props</span>
 <span class="prev-text nav-mobile">上一篇</span></a>
