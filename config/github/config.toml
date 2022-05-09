@@ -1,1 +1,7 @@
 baseURL = "https://dclcats.github.io/hugo/"
+
+[params]
+  [params.reward]                                         # 文章打赏
+    enable = true
+    wechat = "/hugo/pay/wechat-reward-image.jpeg"           # 微信二维码
+    alipay = "/hugo/pay/alipay-reward-image.jpeg"           # 支付宝二维码
