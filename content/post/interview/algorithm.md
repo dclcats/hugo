@@ -20,20 +20,20 @@ comment: false
 ```javascript
 
 function buble(arr) {
-	if (!arr || arr.length === 0) {
-		return arr;
-	}
-	const len = arr.length;
-	for (let i = 0; i < len - 1; i++) {
-		for (let j = 0; j < len - i - 1; j++) {
-			if (arr[j] > arr[j + 1]) {
-				const k = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = k;
-			}
-		}
-	}
-	return arr
+  if (!arr || arr.length === 0) {
+    return arr;
+  }
+  const len = arr.length;
+  for (let i = 0; i < len - 1; i++) {
+    for (let j = 0; j < len - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        const k = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = k;
+      }
+    }
+  }
+  return arr
 }
 
 buble([10,4,2,3,7,5,9,8])
@@ -50,20 +50,20 @@ buble([10,4,2,3,7,5,9,8])
 ```javascript
 
 function selection(arr) {
-	if (!arr || arr.length === 0) {
-		return arr;
-	}
-	const len = arr.length;
-	for (let i = 0; i < len - 1; i++) {
-		for (let j = i + 1; j < len; j++) {
-			if (arr[i] > arr[j]) {
-				const k = arr[i];
-				arr[i] = arr[j];
-				arr[j] = k;
-			}
-		}
-	}
-	return arr
+  if (!arr || arr.length === 0) {
+    return arr;
+  }
+  const len = arr.length;
+  for (let i = 0; i < len - 1; i++) {
+    for (let j = i + 1; j < len; j++) {
+      if (arr[i] > arr[j]) {
+        const k = arr[i];
+        arr[i] = arr[j];
+        arr[j] = k;
+      }
+    }
+  }
+  return arr
 }
 
 selection([10,4,2,3,7,5,9,8])
@@ -80,22 +80,22 @@ selection([10,4,2,3,7,5,9,8])
 ```javascript
 
 function insertion(arr) {
-	if (!arr || arr.length === 0) {
-		return arr;
-	}
-	const len = arr.length;
-	for (let i = 1; i < len; i++) {
-		for (let j = i; j > 0; j--) {
-			if (arr[j] < arr[j - 1]) {
-				const k = arr[j - 1];
-				arr[j - 1] = arr[j];
-				arr[j] = k;
-			} else {
-				break;
-			}
-		}
-	}
-	return arr;
+  if (!arr || arr.length === 0) {
+    return arr;
+  }
+  const len = arr.length;
+  for (let i = 1; i < len; i++) {
+    for (let j = i; j > 0; j--) {
+      if (arr[j] < arr[j - 1]) {
+        const k = arr[j - 1];
+        arr[j - 1] = arr[j];
+        arr[j] = k;
+      } else {
+        break;
+      }
+    }
+  }
+  return arr;
 }
 
 insertion([10,4,2,3,7,5,9,8])
@@ -110,23 +110,23 @@ insertion([10,4,2,3,7,5,9,8])
 ```javascript
 
 function shellSort(arr) {
-	if (!arr || arr.length === 0) {
-		return arr;
-	}
-	let len = arr.length;
-	for (let gap = Math.floor(len / 2); gap > 0; gap = Math.floor(gap / 2)) {
-		for (let i = gap; i < len; i++) {
-			const tmp = arr[i]
-			let j = i;
-			while (j >= gap && tmp < arr[j - gap]) {
+  if (!arr || arr.length === 0) {
+    return arr;
+  }
+  let len = arr.length;
+  for (let gap = Math.floor(len / 2); gap > 0; gap = Math.floor(gap / 2)) {
+    for (let i = gap; i < len; i++) {
+      const tmp = arr[i]
+      let j = i;
+      while (j >= gap && tmp < arr[j - gap]) {
                 arr[j] = arr[j - gap];
                 j -= gap;
             }
-			arr[j] = tmp;
-		}
-		console.log(arr);
-	}
-	return arr;
+      arr[j] = tmp;
+    }
+    console.log(arr);
+  }
+  return arr;
 }
 
 shellSort([10,4,2,3,7,5,9,8])
@@ -143,16 +143,16 @@ shellSort([10,4,2,3,7,5,9,8])
 ```javascript
 
 function fabonacci(n) {
-	if (n <= 1) {
-		return n;
-	}
-	let i = 0;
-	let j = 1;
-	while (--n) {
-		j = i + j;
-		i = j - i;
-	}
-	return j;
+  if (n <= 1) {
+    return n;
+  }
+  let i = 0;
+  let j = 1;
+  while (--n) {
+    j = i + j;
+    i = j - i;
+  }
+  return j;
 }
 
 
@@ -168,16 +168,16 @@ function fabonacci(n) {
 ```javascript
 
 function f(n) {
-	if (n <= 2) {
-		return n;
-	}
-	let i = 0;
-	let j = 1;
-	while(n--) {
-		j = j + i;
-		i = j - i;
-	}
-	return j;
+  if (n <= 2) {
+    return n;
+  }
+  let i = 0;
+  let j = 1;
+  while(n--) {
+    j = j + i;
+    i = j - i;
+  }
+  return j;
 }
 
 f(100)
@@ -198,16 +198,16 @@ f(100)
 ```javascript
 
 function debounce(fn, delay = 500) {
-	let timer;
-	return function () {
-		if (timer) {
-			clearTimeout(timer);
-		}
-		timer = setTimeout(() => {
-			fn.apply(this, arguments)
-			timer = null
-		}, delay);
-	}
+  let timer;
+  return function () {
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(() => {
+      fn.apply(this, arguments)
+      timer = null
+    }, delay);
+  }
 } 
 
 ```
@@ -221,16 +221,16 @@ function debounce(fn, delay = 500) {
 ```javascript
 
 function throttle(fn, delay = 500) {
-	let timer;
-	return function () {
-		if (timer) {
-			return;
-		}
-		timer = setTimeout(() => {
-			fn.apply(this, arguments);
-			timer = null;
-		}, delay)
-	}
+  let timer;
+  return function () {
+    if (timer) {
+      return;
+    }
+    timer = setTimeout(() => {
+      fn.apply(this, arguments);
+      timer = null;
+    }, delay)
+  }
 }
 
 ```
@@ -243,15 +243,15 @@ function throttle(fn, delay = 500) {
 ```javascript
 
 function checkPoint(m) {
-	const a = m.toString();
-	return (a.length - (a.indexOf() + 1));
+  const a = m.toString();
+  return (a.length - (a.indexOf() + 1));
 }
 
 function add(m, n) {
-	const mIdx = checkPoint(m);
-	const nIdx = checkPoint(n);
-	const p = Math.pow(10, Math.max(mIdx, nIdx));
-	return (m * p + n * p) / p
+  const mIdx = checkPoint(m);
+  const nIdx = checkPoint(n);
+  const p = Math.pow(10, Math.max(mIdx, nIdx));
+  return (m * p + n * p) / p
 }
 
 add(0.1, 0.123)
@@ -264,18 +264,18 @@ add(0.1, 0.123)
 ```javascript
 
 function add(num1, num2) {
-	let m = num1.length - 1;
-	let n = num2.length - 1;
-	const arr = [];
-	let add = 0;
-	for(; m >= 0 || n >= 0 || add !== 0; m--, n--) {
-		const x = m >= 0 ? +num1[m] : 0;
-		const y = n >= 0 ? +num2[n] : 0;
-		const sum = x + y + add;
-		arr.push(sum % 10);
-		add = Math.floor(sum / 10);
-	}
-	return arr.reverse().join('');
+  let m = num1.length - 1;
+  let n = num2.length - 1;
+  const arr = [];
+  let add = 0;
+  for(; m >= 0 || n >= 0 || add !== 0; m--, n--) {
+    const x = m >= 0 ? +num1[m] : 0;
+    const y = n >= 0 ? +num2[n] : 0;
+    const sum = x + y + add;
+    arr.push(sum % 10);
+    add = Math.floor(sum / 10);
+  }
+  return arr.reverse().join('');
 }
 
 add('1234567', '87654321174')
@@ -288,25 +288,25 @@ add('1234567', '87654321174')
 ```javascript
 
 function multiply(num1, num2) {
-	if (num1 === '0' || num2 === '0') {
-		return '0';
-	}
-	const m = num1.length;
-	const n = num2.length;
-	const arr = Array(m + n).fill(0);
-	for (let i = m - 1; i >= 0; i--) {
-		const x = +num1[i];
-		for (let j = n - 1; j >= 0; j--) {
-			const y = +num2[j];
-			const result = x * y + arr[i + j + 1];
-			arr[i + j + 1] = result % 10;
-			arr[i + j] += Math.floor(result / 10)
-		}
-	}
-	while (arr[0] === 0) {
-		arr.shift();
-	}
-	return arr.join('')
+  if (num1 === '0' || num2 === '0') {
+    return '0';
+  }
+  const m = num1.length;
+  const n = num2.length;
+  const arr = Array(m + n).fill(0);
+  for (let i = m - 1; i >= 0; i--) {
+    const x = +num1[i];
+    for (let j = n - 1; j >= 0; j--) {
+      const y = +num2[j];
+      const result = x * y + arr[i + j + 1];
+      arr[i + j + 1] = result % 10;
+      arr[i + j] += Math.floor(result / 10)
+    }
+  }
+  while (arr[0] === 0) {
+    arr.shift();
+  }
+  return arr.join('')
 }
 
 multiply('1234567', '87654321174')
@@ -321,20 +321,20 @@ multiply('1234567', '87654321174')
 ```javascript
 
 function lengthOfLongestSubstring(str) {
-	const n = str.length;
-	const last = {};
-	// const last = Array(128).fill(-1);
-	let start = 0;
-	let len = 0;
-	for (let i = 0; i < n; i++) {
-		const key = str[i];
-        // const key = s.charCodeAt(i);
-		start = Math.max(start, (last[key] ?? -1) + 1);
-		// start = Math.max(start, last[key] + 1);
-		len = Math.max(len, i - start + 1);
-		last[key] = i;
-	}
-	return len;
+  const n = str.length;
+  const last = {};
+  // const last = Array(128).fill(-1);
+  let start = 0;
+  let len = 0;
+  for (let i = 0; i < n; i++) {
+    const key = str[i];
+    // const key = s.charCodeAt(i);
+    start = Math.max(start, (last[key] ?? -1) + 1);
+    // start = Math.max(start, last[key] + 1);
+    len = Math.max(len, i - start + 1);
+    last[key] = i;
+  }
+  return len;
 }
 
 ```
@@ -346,36 +346,36 @@ function lengthOfLongestSubstring(str) {
 ```javascript
 
 Promise.prototype.all = function (arr) {
-    return arr.reduce((result, item) => {
-    	return item.then(value => {
-			return result.then(res => {
-				res.push(value)
-				return res
-			})
-		})
-    }, Promise.resolve([]))
+  return arr.reduce((result, item) => {
+    return item.then(value => {
+      return result.then(res => {
+        res.push(value)
+        return res
+      })
+    })
+  }, Promise.resolve([]))
 }
 
 Promise.prototype.all = function (arr) {
-    return new Promise((resolve, reject) => {
-    	if (!arr) {
-    		reject();
-    	}
-    	if (arr.length === 0) {
-    		resolve([])
-    	}
-        const result = [];
-        arr.forEach((item, idx) => {
-            item.then((res) => {
-                result[idx] = res;
-                if (result.length === arr.length) {
-                    resolve(result);
-                }
-            }).catch(err => {
-                reject(err)
-            })
-        })
+  return new Promise((resolve, reject) => {
+    if (!arr) {
+      reject();
+    }
+    if (arr.length === 0) {
+      resolve([])
+    }
+    const result = [];
+    arr.forEach((item, idx) => {
+      item.then((res) => {
+        result[idx] = res;
+        if (result.length === arr.length) {
+          resolve(result);
+        }
+      }).catch(err => {
+        reject(err)
+      })
     })
+  })
 }
 
 
