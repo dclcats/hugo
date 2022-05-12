@@ -382,6 +382,30 @@ Promise.prototype.all = function (arr) {
 ```
 
 
+### 计算数组深度
+
+```javascript
+
+function getDeep(arr) {
+  const deeps = [0];
+  arr.forEach((item) => {
+    if (Array.isArray(item)) {
+      deeps.push(getDeep(item))
+    }
+  })
+  return Math.max(...deeps) + 1
+}
+
+function getDeep(arr) {
+  return arr.reduce((deep, item) => {
+    if (Array.isArray(item)) {
+      return Math.max(deep, 1 + getDeep(item))
+    }
+    return deep;
+  }, 1);
+}
+
+```
 
 
 
