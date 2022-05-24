@@ -5,3 +5,13 @@ title = "灿灿的博客网 | staging"
 buildDrafts = true 
 buildExpired = true
 buildFuture = true
+
+
+
+[params]
+
+  [params.busuanzi]         # count web traffic by busuanzi                             # 是否使用不蒜子统计站点访问量
+    enable = false
+    siteUV = false
+    sitePV = false
+    pagePV = false
