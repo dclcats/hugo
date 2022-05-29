@@ -121,5 +121,79 @@ propertyKey：需要删除的属性的名称。
 
 对于非 `Object` 的 `target` 将抛出 `TypeError`;
 
+## Reflect.ownKeys()
+
+静态方法 Reflect.ownKeys() 返回一个由目标对象自身的属性键组成的数组。
+
+**可以拿到不可枚举的属性，以及Symbol为key的属性**
+
+### 语法
+
+```javascript
+Reflect.ownKeys(target)
+```
+
+#### 参数
+
+target：获取自身属性键的目标对象。
+
+#### 返回值
+
+由目标对象的自身属性键组成的 `Array`。
+
+#### 异常
+
+如果目标不是 `Object` ，抛出一个 `TypeError` 。
+
+### 描述
+
+`Reflect.ownKeys` 方法返回一个由目标对象自身的属性键组成的数组。它的返回值等同于`Object.getOwnPropertyNames(target).concat(Object.getOwnPropertySymbols(target))`。
+
+
+### 示例
+
+```javascript
+var o = {};
+Object.defineProperty(o, "a", { value : 1, enumerable: true });
+Object.defineProperty(o, "b", { value : 2, enumerable: false });
+Object.defineProperty(o, "c", { value : 3 }); // enumerable 默认为 false
+o.d = 4; // 如果使用直接赋值的方式创建对象的属性，则 enumerable 为 true
+Object.defineProperty(o, Symbol.for('e'), {
+  value: 5,
+  enumerable: true
+});
+Object.defineProperty(o, Symbol.for('f'), {
+  value: 6,
+  enumerable: false
+});
+
+for (var i in o) {
+  console.log(i);
+}
+// logs 'a' and 'd' (in undefined order)
+
+Object.keys(o); // ['a', 'd']
+
+o.propertyIsEnumerable('a'); // true
+o.propertyIsEnumerable('b'); // false
+o.propertyIsEnumerable('c'); // false
+o.propertyIsEnumerable('d'); // true
+o.propertyIsEnumerable(Symbol.for('e')); // true
+o.propertyIsEnumerable(Symbol.for('f')); // false
+
+var p = { ...o }
+p.a // 1
+p.b // undefined
+p.c // undefined
+p.d // 4
+p[Symbol.for('e')] // 5
+p[Symbol.for('f')] // undefined
+
+Object.getOwnPropertyNames(o) // ['a', 'b', 'c', 'd']
+Object.getOwnPropertySymbols(o) // [Symbol.for(e), Symbol.for(f)]
+
+Reflect.ownKeys(o) // ['a', 'b', 'c', 'd', Symbol.for(e), Symbol.for(f)]
+```
+
 
 
