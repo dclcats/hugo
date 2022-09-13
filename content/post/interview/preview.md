@@ -7,7 +7,7 @@ author: "Chris-dc"
 description: "前端面试题汇总"
 summary: "前端面试题汇总"
 toc: true
-comment: false
+comment: true
 ---
 
 [前端面试经典算法题](https://blog.csdn.net/qq_39207948/article/details/113922691)
