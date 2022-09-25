@@ -30,7 +30,9 @@ comment: false
 
 这是Windows官方的工具下载链接，打开会比较慢。
 
-[下载 Windows 10www.microsoft.com/zh-cn/software-download/windows10![img](https://pic3.zhimg.com/v2-7e55fcfcc6183871cd258af652c7bade_180x120.jpg)](https://link.zhihu.com/?target=https%3A//www.microsoft.com/zh-cn/software-download/windows10)
+![img](https://pic3.zhimg.com/v2-7e55fcfcc6183871cd258af652c7bade_180x120.jpg)
+
+[下载 Windows 10www.microsoft.com/zh-cn/software-download/windows10](https://link.zhihu.com/?target=https%3A//www.microsoft.com/zh-cn/software-download/windows10)
 
 
 

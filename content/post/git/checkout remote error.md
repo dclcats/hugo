@@ -27,6 +27,7 @@ NTFS 文件系统的保护机制
 
 
 [官方说明](https://git-scm.com/docs/git-config)
+
 > If set to true, do not allow checkout of paths that would cause problems with the NTFS filesystem, e.g. conflict with 8.3 "short" names. Defaults to true on Windows, and false elsewhere.
 
 

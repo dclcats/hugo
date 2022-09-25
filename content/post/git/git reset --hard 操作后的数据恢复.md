@@ -10,7 +10,9 @@ tags: ["git reset", "数据恢复"]
 在进行正文之前先简单介绍下`git reset` 命令
 ### git reset
 `git reset` 命令用于改变当前的仓库状态，简单的场景用例：假设一次修改了两个文件，然而需要对这两个文件分别进行两次提交，在进行缓存操作时（`git add`），不小心将两个文件都进行了缓存，此时我们需要对其中一个文件取消缓存，此时就需要`git reset` 操作来实现，如下图
+
 ![image](https://user-images.githubusercontent.com/26424129/39693980-53792fbe-5218-11e8-9d88-7aa3a7ee5443.png)
+
 然后，对`b.txt`进行`commit`操作，然后再对`a.txt`进行`add & commit`操作
 
 对于`git reset`命令添加了**--hard** 参数后会怎样呢，在[git官网的reference上](https://git-scm.com/docs/git-reset) 有如下一段话
@@ -50,13 +52,17 @@ tags: ["git reset", "数据恢复"]
 
 
 关于此命令，git官网的解释
+
 ![image](https://user-images.githubusercontent.com/26424129/39697417-76095378-5223-11e8-8453-654d38de8cd9.png)
+
 根据提示，找到目录'.git/lost-found'，可以看到，
 
 ![image](https://user-images.githubusercontent.com/26424129/39697621-191fa13e-5224-11e8-901a-b9a7f881b396.png)
 
 我们在‘commit’和‘other’目录下分别看到命令窗口打印出的文件，在‘other‘目录下找出之前遗失的文件
+
 ![image](https://user-images.githubusercontent.com/26424129/39697733-87c3c23c-5224-11e8-8755-443df0853a26.png)
+
 然后新建'c.txt'文件，并将文件内容复制过去，结束。
 
 是不是很麻烦，特别是一次提交的文件多了，一个一个新建（修改）复制过去好烦哦。
