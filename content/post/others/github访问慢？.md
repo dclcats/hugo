@@ -2,6 +2,7 @@
 title: "Github访问慢？"
 date: 2021-04-01T10:33:40+08:00
 draft: false
+expirydate: 2021-04-02T10:33:40+08:00
 slug: "a84ac7fa"
 author: "Chris-dc"
 description: "Github访问慢问题，及解决方案"

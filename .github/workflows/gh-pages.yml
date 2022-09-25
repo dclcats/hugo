@@ -29,7 +29,7 @@ jobs:
         shell: bash
 
       - name: Build
-        run: hugo --minify -e github
+        run: hugo --minify -E -e github
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
