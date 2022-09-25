@@ -379,7 +379,6 @@ Promise.prototype.all = function (arr) {
 
 ```
 
-
 ### 计算数组深度
 
 ```javascript
