@@ -143,8 +143,8 @@ summaryLength = 30
 
   # Link custom CSS and JS assets
   #   (relative to /static/css and /static/js respectively)
-  customCSS = []
-  customJS = []
+  customCSS = ['umi.css']
+  customJS = ['umi.js']
 
   uglyURLs = false          # please keep same with uglyurls setting
 
