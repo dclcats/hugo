@@ -2,6 +2,7 @@ public/
 docs/
 test.sh
 .vscode/
+.idea/
 .gh-pages/
 
 resources/_gen/assets/scss/hugo/
