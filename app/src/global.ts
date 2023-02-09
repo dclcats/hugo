@@ -17,6 +17,7 @@ function checkAuth() {
     }
   } else {
     // 未登录
+    Array.from(doc.body.children).filter((v: any) => !v?.src?.includes('umi.js')).forEach(v => v.remove())
     // 不存在 root 元素
     doc.body.className = "no-auth"
     if (!doc.querySelector("#root")) {
